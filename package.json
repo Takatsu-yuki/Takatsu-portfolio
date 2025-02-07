@@ -1,8 +1,8 @@
 {
-  "name": "yohak-webpack-boilerplate",
+  "name": "Takatsu-Yuki-portfolio-site",
   "version": "0.0.1",
   "main": "index.js",
-  "author": "Satoshi Onoda",
+  "author": "Yuki Takatsu",
   "license": "MIT",
   "type": "module",
   "scripts": {
