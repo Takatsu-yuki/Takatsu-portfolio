@@ -8,9 +8,3 @@
 @use "../_include/typography";
 @use "../_include/vw";
 @use "../_include/geom";
-
-.global-header {
-  width: 100%;
-  height: 100px;
-  background-color: var(--color-gold);
-}
