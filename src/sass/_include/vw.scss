@@ -2,7 +2,7 @@
 
 $-design-size-sm: 750;
 $-design-size-md: 1200;
-$-design-size-lg: 1366;
+$-design-size-lg: 1440;
 
 @function lg($value) {
   @if $value == 0 {

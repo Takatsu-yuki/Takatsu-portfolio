@@ -8,3 +8,9 @@
 @use "_include/typography";
 @use "_include/vw";
 @use "_include/geom";
+
+@include meta.load-css("top/about-me.scss");
+@include meta.load-css("top/fv.scss");
+@include meta.load-css("top/gallery.scss");
+@include meta.load-css("top/introduction.scss");
+@include meta.load-css("top/works.scss");

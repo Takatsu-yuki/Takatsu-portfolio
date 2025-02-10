@@ -1,0 +1,99 @@
+@use "sass:meta";
+@use "sass:math";
+@use "../_include/color";
+@use "../_include/decoration";
+@use "../_include/ease";
+@use "../_include/media_query" as mq;
+@use "../_include/path";
+@use "../_include/typography";
+@use "../_include/vw";
+@use "../_include/geom";
+
+.fv {
+  width: 100%;
+  height: vw.lg(830);
+
+  .inner {
+    position: relative;
+    box-sizing: border-box;
+    width: vw.lg(1224);
+    max-width: 1460px;
+    height: 100%;
+    margin-inline: auto;
+    background-position: center 5vh;
+
+    @include path.bg-img("top/img-fv-bg.png");
+
+    .content {
+      position: absolute;
+      display: flex;
+      justify-content: flex-end;
+      width: vw.lg(1200);
+      max-width: 1500px;
+
+      .head {
+        position: absolute;
+        top: 19%;
+        left: 0;
+        color: var(--color-gold);
+
+        @include typography.en-regular;
+
+        h1 {
+          margin-bottom: 20px;
+          font-size: vw.lg(90);
+          font-weight: 400;
+          line-height: 1;
+        }
+
+        p {
+          font-size: vw.lg(22);
+        }
+      }
+
+      .character {
+        @include path.bg-img("top/img-.character.png");
+        position: relative;
+        flex-shrink: 0;
+        max-width: 1170px;
+        height: vw.lg(774);
+        aspect-ratio: 893/774;
+        transform: rotate(5deg);
+
+        .circle {
+          position: absolute;
+          top: 0;
+          left: 21%;
+          height: vw.lg(190);
+          aspect-ratio: 1 / 1;
+
+          &:hover {
+            transition: 1s ease-in-out;
+            transform: rotate(60deg);
+            transform-origin: center;
+          }
+
+          &::before {
+            display: block;
+            width: 100%;
+            height: 100%;
+            content: "";
+            animation: 13s infinite rotation linear;
+
+            @include path.bg-img("top/img-circle-text.png");
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

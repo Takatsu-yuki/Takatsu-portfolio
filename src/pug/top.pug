@@ -3,5 +3,12 @@ extends _template/_base
 block vars
   - lev1ID = "top";
 
+block links
+  link(href=`${pathToCSS}top.css${hash}`, rel="stylesheet", type="text/css")
+
 block main
-  p 
+  include top/about-me
+  include top/fv
+  include top/gallery
+  include top/introduction
+  include top/works

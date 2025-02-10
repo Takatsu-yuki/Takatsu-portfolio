@@ -1,11 +1,16 @@
-@mixin regular() {
+$-font-ja-zen: "Zen Old Mincho", "yumincho", "Hiragino Mincho ProN", serif;
+$-font-en: "Hina Mincho", serif;
+
+@mixin zen-regular() {
+  font-family: $-font-ja-zen;
   font-weight: 400;
 }
-
-@mixin medium() {
-  font-weight: 500;
+@mixin zen-bold() {
+  font-family: $-font-ja-zen;
+  font-weight: 700;
 }
 
-@mixin semi-bold() {
-  font-weight: 600;
+@mixin en-regular() {
+  font-family: $-font-en;
+  font-weight: 400;
 }

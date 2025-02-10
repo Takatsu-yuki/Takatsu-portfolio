@@ -2,6 +2,15 @@
 @use "sass:meta";
 @use "sass:math";
 
+body {
+  z-index: -1;
+  box-sizing: border-box;
+  font-feature-settings: "palt";
+  line-height: 1.5;
+  letter-spacing: 0.1rem;
+  background-color: var(--color-white);
+}
+
 @mixin dummy-image-border {
   border: 1px dashed rgba(255 0 0 / 50%);
 }

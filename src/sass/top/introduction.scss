@@ -1,0 +1,82 @@
+@use "sass:meta";
+@use "sass:math";
+@use "../_include/color";
+@use "../_include/decoration";
+@use "../_include/ease";
+@use "../_include/media_query" as mq;
+@use "../_include/path";
+@use "../_include/typography";
+@use "../_include/vw";
+@use "../_include/geom";
+
+.introduction {
+  width: 100%;
+
+  .inner {
+    position: relative;
+    padding: 0 108px 200px;
+
+    .head {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      margin-bottom: 100px;
+      color: var(--color-gold);
+
+      h2 {
+        @include typography.en-regular;
+        font-size: 70px;
+        line-height: 1;
+      }
+
+      p {
+        @include typography.zen-regular;
+        font-size: 27px;
+      }
+    }
+
+    .text {
+      @include typography.zen-regular;
+      max-width: 500px;
+      font-size: 20px;
+      line-height: 2.3;
+      color: var(--color-black);
+    }
+  }
+
+  .bg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60%;
+    height: 500px;
+    overflow: hidden;
+
+    .bg-1 {
+      @include path.bg-img("top/img-top-bg-1.png");
+      position: absolute;
+      bottom: 0;
+      z-index: -1;
+      width: 100%;
+      aspect-ratio: 1440 / 1042;
+    }
+
+    .bg-2 {
+      @include path.bg-img("top/img-top-bg-2.png");
+      position: absolute;
+      bottom: 0;
+      z-index: -1;
+      width: 100%;
+      aspect-ratio: 1440 / 848;
+    }
+
+    .bg-3 {
+      @include path.bg-img("top/img-top-bg-3.png");
+      position: absolute;
+      bottom: 0;
+      z-index: -1;
+      width: 100%;
+      aspect-ratio: 1440 / 465;
+    }
+  }
+}
