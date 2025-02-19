@@ -16,6 +16,10 @@
     position: relative;
     padding: 0 108px 200px;
 
+    @include mq.sm {
+      padding: 0 24px 60px;
+    }
+
     .head {
       display: flex;
       flex-direction: column;
@@ -23,24 +27,61 @@
       margin-bottom: 100px;
       color: var(--color-gold);
 
+      @include mq.sm {
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+
       h2 {
         @include typography.en-regular;
         font-size: 70px;
         line-height: 1;
+
+        @include mq.sm {
+          font-size: 30px;
+        }
       }
 
       p {
         @include typography.zen-regular;
-        font-size: 27px;
+        font-size: 20px;
+
+        @include mq.sm {
+          font-size: 12px;
+        }
       }
     }
 
     .text {
-      @include typography.zen-regular;
-      max-width: 500px;
-      font-size: 20px;
-      line-height: 2.3;
-      color: var(--color-black);
+      max-width: 802px;
+
+      @include mq.sm {
+        width: 340px;
+        max-width: 100%;
+      }
+
+      .ja {
+        @include typography.zen-regular;
+        margin-bottom: 40px;
+        font-size: 20px;
+        line-height: 2.3;
+        color: var(--color-black);
+
+        @include mq.sm {
+          margin-bottom: 20px;
+          font-size: 13px;
+        }
+      }
+
+      .en {
+        @include typography.en-regular;
+        font-size: 16px;
+        color: var(--color-gold);
+
+        @include mq.sm {
+          font-size: 12px;
+        }
+      }
     }
   }
 
@@ -48,17 +89,24 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 60%;
-    height: 500px;
+    width: 100%;
+    height: vw.lg(800);
     overflow: hidden;
 
+    @include mq.sm {
+      height: vw.sm(500);
+      max-height: 550px;
+    }
+
     .bg-1 {
-      @include path.bg-img("top/img-top-bg-1.png");
+      @include path.bg-img("top/img-top-bg-1.png", cover);
       position: absolute;
       bottom: 0;
       z-index: -1;
-      width: 100%;
+      width: 120%;
+      height: 100%;
       aspect-ratio: 1440 / 1042;
+      background-position: left top;
     }
 
     .bg-2 {
