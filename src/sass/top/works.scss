@@ -8,3 +8,47 @@
 @use "../_include/typography";
 @use "../_include/vw";
 @use "../_include/geom";
+
+.works {
+  margin: 100px 108px;
+
+  .head {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 80px;
+    color: var(--color-black);
+
+    h2 {
+      @include typography.en-regular;
+      font-size: 100px;
+      line-height: 1;
+    }
+
+    p {
+      @include typography.zen-regular;
+      margin-left: 8px;
+      font-size: 20px;
+    }
+  }
+
+  .item {
+    display: flex;
+
+    .img {
+      width: 50%;
+
+      .works-1 {
+        @include path.bg-img("top/img-works-1.jpg");
+      }
+    }
+
+    .text {
+      width: 50%;
+      color: var(--color-black);
+
+      span {
+        display: block;
+      }
+    }
+  }
+}
