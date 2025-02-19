@@ -4,7 +4,6 @@ $-font-en: "Hina Mincho", serif;
 @mixin zen-regular() {
   font-family: $-font-ja-zen;
   font-weight: 400;
-  letter-spacing: 0;
 }
 @mixin zen-bold() {
   font-family: $-font-ja-zen;

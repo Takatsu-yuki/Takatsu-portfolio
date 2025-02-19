@@ -15,39 +15,220 @@
   .head {
     display: flex;
     flex-direction: column;
-    margin-bottom: 80px;
+    gap: 15px;
+    max-width: 1224px;
+    margin: 0 auto 80px;
     color: var(--color-black);
 
     h2 {
       @include typography.en-regular;
+      margin-left: -8px;
       font-size: 100px;
       line-height: 1;
     }
 
     p {
       @include typography.zen-regular;
-      margin-left: 8px;
       font-size: 20px;
     }
   }
 
-  .item {
-    display: flex;
+  .content {
+    .item:nth-child(2) {
+      flex-direction: row-reverse;
 
-    .img {
-      width: 50%;
-
-      .works-1 {
-        @include path.bg-img("top/img-works-1.jpg");
+      .text {
+        padding: 0 0 0 7%;
       }
     }
 
-    .text {
-      width: 50%;
+    .works-bg {
+      @include path.bg-img("works/img-works-bg.jpg", cover);
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+    }
+
+    .img-works {
+      position: relative;
+      z-index: 2;
+      box-sizing: border-box;
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-position: top center;
+      border: solid 1px var(--color-gold);
+      transition: 0.3s ease.$custom1;
+    }
+
+    .item {
+      display: flex;
+      justify-content: space-between;
+      max-width: 1224px;
+      margin: 0 auto 80px;
+      text-decoration: none;
+
+      &:hover .img-works {
+        transform: translate(-15px, -15px);
+      }
+
+      .img {
+        position: relative;
+        display: block;
+        width: 49%;
+        aspect-ratio: 5 / 3;
+
+        .works-1 {
+          @include path.bg-img("works/img-works-1.jpg", cover);
+        }
+
+        .works-2 {
+          @include path.bg-img("works/img-works-2.jpg", cover);
+        }
+      }
+
+      .text {
+        @include typography.zen-regular;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        justify-content: center;
+        width: 42%;
+        padding-right: 7%;
+        color: var(--color-black);
+
+        span {
+          display: block;
+          font-size: 12px;
+        }
+
+        h3 {
+          font-size: 20px;
+        }
+
+        p {
+          font-size: 16px;
+          line-height: 1.8;
+        }
+      }
+    }
+
+    ul {
+      @include typography.zen-regular;
+      display: flex;
+      justify-content: space-between;
+      max-width: 1224px;
+      margin: 0 auto 80px;
+
+      li {
+        width: 31%;
+
+        .item-min {
+          display: block;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          align-items: center;
+          color: var(--color-black);
+          text-decoration: none;
+
+          &:hover .img-works {
+            transform: translate(-10px, -10px);
+          }
+
+          span {
+            font-size: 12px;
+          }
+
+          h3 {
+            font-size: 16px;
+            font-weight: 400;
+          }
+
+          .img {
+            position: relative;
+            display: block;
+            width: 100%;
+            aspect-ratio: 5 / 3;
+
+            .works-3 {
+              @include path.bg-img("works/img-works-3.jpg", cover);
+            }
+
+            .works-4 {
+              @include path.bg-img("works/img-works-4.jpg", cover);
+            }
+
+            .works-5 {
+              @include path.bg-img("works/img-works-5.jpg", cover);
+            }
+          }
+        }
+      }
+    }
+
+    .btn-more {
+      @include typography.en-regular;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      width: fit-content;
+      margin: 0 auto;
+      font-size: 20px;
       color: var(--color-black);
+      text-decoration: none;
+
+      svg {
+        width: 30px;
+        height: 30px;
+        transition: 0.5s ease.$custom1;
+
+        path {
+          fill: var(--color-black);
+          transition: 0.5s ease.$custom1;
+        }
+      }
 
       span {
+        position: relative;
         display: block;
+        transition: 0.5s ease.$custom1;
+
+        &::before {
+          position: absolute;
+          top: 50%;
+          left: 77px;
+          width: 20px;
+          height: 1px;
+          content: "";
+          background-color: var(--color-black);
+          transition: 0.5s ease.$custom1;
+          transform: translateY(-50%);
+          transform-origin: left;
+        }
+      }
+
+      &:hover {
+        svg {
+          transform: rotate(60deg);
+
+          path {
+            fill: var(--color-gold);
+          }
+        }
+
+        span {
+          color: var(--color-gold);
+
+          &::before {
+            width: 50px;
+            background-color: var(--color-gold);
+          }
+        }
       }
     }
   }
