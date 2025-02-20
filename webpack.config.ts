@@ -31,13 +31,13 @@ export default makeConfig({
       "top.css": "top.scss",
     },
   },
-  ts: {
-    src: join(DIR_SRC, "ts"),
-    dest: join(DIR_ASSETS, "js"),
-    files: {
-      "main.js": "main.ts",
-    },
-  },
+  // ts: {
+  //   src: join(DIR_SRC, "ts"),
+  //   dest: join(DIR_ASSETS, "js"),
+  //   files: {
+  //     "main.js": "main.ts",
+  //   },
+  // },
   copy: [
     {
       from: join(DIR_SRC, "assets/libs"),
@@ -46,6 +46,10 @@ export default makeConfig({
     {
       from: join(DIR_SRC, "assets/img"),
       to: join(DIR_ASSETS, "images"),
+    },
+    {
+      from: join(DIR_SRC, "assets/js"),
+      to: join(DIR_ASSETS, "js"),
     },
   ],
 });

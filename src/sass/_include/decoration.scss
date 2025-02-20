@@ -2,6 +2,10 @@
 @use "sass:meta";
 @use "sass:math";
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   z-index: -1;
   box-sizing: border-box;
