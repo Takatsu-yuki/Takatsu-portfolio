@@ -21,12 +21,16 @@
     color: var(--color-gold);
     text-align: center;
     transform: translateY(-50%);
+
+    @include mq.sm {
+      font-size: 50px;
+    }
   }
 
   .items {
     position: relative;
-    height: 200vw;
-    margin-top: 200px;
+    height: 200vh;
+    margin-top: 300px;
 
     div {
       position: absolute;
@@ -46,7 +50,11 @@
     }
 
     .item1 {
-      top: 0%;
+      top: 0;
+
+      @include mq.sm {
+        top: 30vw;
+      }
 
       .img1 {
         @include path.bg-img("top/img-gallery-1.jpg", cover);
@@ -57,8 +65,12 @@
     }
 
     .item2 {
-      top: 0%;
+      top: 0;
       justify-content: flex-end;
+
+      @include mq.sm {
+        top: -20vw;
+      }
 
       .img2 {
         @include path.bg-img("top/img-gallery-2.jpg", cover);
@@ -69,8 +81,12 @@
     }
 
     .item3 {
-      top: -3%;
+      top: -10vw;
       z-index: 1;
+
+      @include mq.sm {
+        top: -27vw;
+      }
 
       .img3 {
         @include path.bg-img("top/img-gallery-3.jpg", cover);
@@ -81,7 +97,11 @@
     }
 
     .item4 {
-      top: -50%;
+      top: -80vw;
+
+      @include mq.sm {
+        top: -223vw;
+      }
 
       .img4 {
         @include path.bg-img("top/img-gallery-4.jpg", cover);
@@ -92,8 +112,12 @@
     }
 
     .item5 {
-      top: 68%;
+      top: 80vw;
       justify-content: flex-end;
+
+      @include mq.sm {
+        top: 120vw;
+      }
 
       .img5 {
         @include path.bg-img("top/img-gallery-5.jpg", cover);
@@ -104,7 +128,11 @@
     }
 
     .item6 {
-      top: 80%;
+      top: 100vw;
+
+      @include mq.sm {
+        top: 200vw;
+      }
 
       .img6 {
         @include path.bg-img("top/img-gallery-6.jpg", cover);
@@ -115,7 +143,11 @@
     }
 
     .item7 {
-      top: 25%;
+      top: 5vw;
+
+      @include mq.sm {
+        top: -45vw;
+      }
 
       .img7 {
         @include path.bg-img("top/img-gallery-7.jpg", cover);
@@ -126,7 +158,7 @@
     }
 
     .item8 {
-      top: 60%;
+      top: 70vw;
       justify-content: flex-end;
 
       .img8 {
