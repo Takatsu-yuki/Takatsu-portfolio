@@ -8,3 +8,43 @@
 @use "../_include/typography";
 @use "../_include/vw";
 @use "../_include/geom";
+
+.about-me {
+  .inner {
+    margin-bottom: 200px;
+
+    .head {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+      margin-bottom: 80px;
+      color: var(--color-black);
+      text-align: center;
+
+      h2 {
+        @include typography.en-regular;
+        font-size: 92px;
+        line-height: 1;
+      }
+
+      p {
+        @include typography.zen-regular;
+        font-size: 16px;
+      }
+    }
+
+    .content {
+      display: flex;
+      width: calc(100% - 108px);
+      margin-left: auto;
+      border: solid 2px var(--color-gold);
+      border-right: none;
+      border-radius: 90px 0 0;
+
+      .left {
+        position: relative;
+      }
+    }
+  }
+}

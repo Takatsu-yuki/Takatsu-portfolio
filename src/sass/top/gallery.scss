@@ -11,6 +11,7 @@
 
 .gallery {
   position: relative;
+  margin-bottom: 300px;
 
   h2 {
     @include typography.en-regular;
