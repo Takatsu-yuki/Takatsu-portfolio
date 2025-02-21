@@ -16,7 +16,7 @@
     @include typography.en-regular;
     position: sticky;
     top: 50%;
-    z-index: 1;
+    z-index: 10;
     font-size: 130px;
     color: var(--color-gold);
     text-align: center;
@@ -24,10 +24,12 @@
   }
 
   .items {
-    display: flex;
-    flex-direction: column;
+    position: relative;
+    height: 200vw;
+    margin-top: 200px;
 
     div {
+      position: absolute;
       display: flex;
       width: 100%;
 
@@ -44,15 +46,18 @@
     }
 
     .item1 {
+      top: 0%;
+
       .img1 {
         @include path.bg-img("top/img-gallery-1.jpg", cover);
         width: 23%;
         aspect-ratio: 5 / 6;
-        margin: 100px 0 0 7%;
+        margin: 800px 0 0 7%;
       }
     }
 
     .item2 {
+      top: 0%;
       justify-content: flex-end;
 
       .img2 {
@@ -64,60 +69,71 @@
     }
 
     .item3 {
+      top: -3%;
+      z-index: 1;
+
       .img3 {
         @include path.bg-img("top/img-gallery-3.jpg", cover);
         width: 41%;
         aspect-ratio: 24 / 17;
-        margin: -3% 0 0 2%;
+        margin: 0 0 0 2%;
       }
     }
 
     .item4 {
+      top: -50%;
+
       .img4 {
         @include path.bg-img("top/img-gallery-4.jpg", cover);
         width: 21%;
         aspect-ratio: 60 / 47;
-        margin: -3% 0 0 37%;
+        margin: 0 0 0 37%;
       }
     }
 
     .item5 {
+      top: 68%;
       justify-content: flex-end;
 
       .img5 {
         @include path.bg-img("top/img-gallery-5.jpg", cover);
         width: 41%;
         aspect-ratio: 139 / 78;
-        margin: -10% 2% 0 0;
+        margin: 0 2% 0 0;
       }
     }
 
     .item6 {
+      top: 80%;
+
       .img6 {
         @include path.bg-img("top/img-gallery-6.jpg", cover);
         width: 23%;
         aspect-ratio: 1 / 1;
-        margin: -4% 0 0 7%;
+        margin: 1000px 0 0 7%;
       }
     }
 
     .item7 {
+      top: 25%;
+
       .img7 {
         @include path.bg-img("top/img-gallery-7.jpg", cover);
         width: 15%;
         aspect-ratio: 37 / 50;
-        margin: -10% 0 0 32%;
+        margin: 0 0 0 32%;
       }
     }
 
     .item8 {
+      top: 60%;
       justify-content: flex-end;
 
       .img8 {
         @include path.bg-img("top/img-gallery-8.jpg", cover);
         width: 41%;
         aspect-ratio: 28 / 19;
-        margin: -10% 7% 80vh 0;
+        margin: 0 7% 80vh 0;
       }
     }
   }
