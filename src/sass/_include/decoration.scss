@@ -1,6 +1,12 @@
 @use "path";
 @use "sass:meta";
 @use "sass:math";
+@use "color";
+@use "ease";
+@use "media_query" as mq;
+@use "typography";
+@use "vw";
+@use "geom";
 
 html {
   scroll-behavior: smooth;
@@ -13,6 +19,87 @@ body {
   line-height: 1.5;
   letter-spacing: 0.1rem;
   background-color: var(--color-white);
+}
+
+.btn-more {
+  @include typography.en-regular;
+  position: relative;
+  z-index: 100;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  width: fit-content;
+  margin: 0 auto;
+  font-size: 20px;
+  color: var(--color-black);
+  text-decoration: none;
+
+  svg {
+    width: 30px;
+    height: 30px;
+    transition: 0.5s ease.$custom1;
+
+    path {
+      fill: var(--color-black);
+      transition: 0.5s ease.$custom1;
+    }
+  }
+
+  span {
+    position: relative;
+    display: block;
+    transition: 0.5s ease.$custom1;
+
+    &::before {
+      position: absolute;
+      top: 50%;
+      left: 77px;
+      width: 20px;
+      height: 1px;
+      content: "";
+      background-color: var(--color-black);
+      transition: 0.5s ease.$custom1;
+      transform: translateY(-50%);
+      transform-origin: left;
+    }
+  }
+
+  &:hover {
+    svg {
+      transform: rotate(60deg);
+
+      path {
+        fill: var(--color-gold);
+      }
+    }
+
+    span {
+      color: var(--color-gold);
+
+      &::before {
+        width: 50px;
+        background-color: var(--color-gold);
+      }
+    }
+  }
+}
+
+.hr {
+  position: relative;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-gold);
+
+  &::before {
+    @include path.bg-img("common/deco-hr.png");
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 26px;
+    height: 10px;
+    content: "";
+    transform: translate(-50%, -50%);
+  }
 }
 
 @mixin dummy-image-border {

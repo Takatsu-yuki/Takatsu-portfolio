@@ -29,12 +29,9 @@
   }
 
   .items {
-    position: relative;
-    height: 200vh;
     margin-top: 300px;
 
     div {
-      position: absolute;
       display: flex;
       width: 100%;
 
@@ -51,42 +48,36 @@
     }
 
     .item1 {
-      top: 0;
-
       @include mq.sm {
-        top: 30vw;
       }
 
       .img1 {
         @include path.bg-img("top/img-gallery-1.jpg", cover);
-        width: 23%;
+        width: vw.lg(330);
         aspect-ratio: 5 / 6;
-        margin: 800px 0 0 7%;
+        margin: vw.lg(500) 0 0 vw.lg(105);
       }
     }
 
     .item2 {
-      top: 0;
       justify-content: flex-end;
+      margin-top: vw.lg(-850);
 
       @include mq.sm {
-        top: -20vw;
       }
 
       .img2 {
         @include path.bg-img("top/img-gallery-2.jpg", cover);
-        width: 43%;
+        width: vw.lg(620);
         aspect-ratio: 124 / 85;
         margin: 0;
       }
     }
 
     .item3 {
-      top: -10vw;
       z-index: 1;
 
       @include mq.sm {
-        top: -27vw;
       }
 
       .img3 {
@@ -98,10 +89,7 @@
     }
 
     .item4 {
-      top: -80vw;
-
       @include mq.sm {
-        top: -223vw;
       }
 
       .img4 {
@@ -113,11 +101,9 @@
     }
 
     .item5 {
-      top: 80vw;
       justify-content: flex-end;
 
       @include mq.sm {
-        top: 120vw;
       }
 
       .img5 {
@@ -129,10 +115,7 @@
     }
 
     .item6 {
-      top: 100vw;
-
       @include mq.sm {
-        top: 200vw;
       }
 
       .img6 {
@@ -144,10 +127,7 @@
     }
 
     .item7 {
-      top: 5vw;
-
       @include mq.sm {
-        top: -45vw;
       }
 
       .img7 {
@@ -159,7 +139,6 @@
     }
 
     .item8 {
-      top: 70vw;
       justify-content: flex-end;
 
       .img8 {
