@@ -11,14 +11,14 @@
 
 .gallery {
   position: relative;
-  margin-bottom: 300px;
+  margin-bottom: 50vh;
 
   h2 {
     @include typography.en-regular;
     position: sticky;
     top: 50%;
     z-index: 10;
-    font-size: 130px;
+    font-size: vw.lg(130);
     color: var(--color-gold);
     text-align: center;
     transform: translateY(-50%);
@@ -29,7 +29,7 @@
   }
 
   .items {
-    margin-top: 300px;
+    padding: vw.lg(300) 0;
 
     div {
       display: flex;
@@ -52,25 +52,24 @@
       }
 
       .img1 {
-        @include path.bg-img("top/img-gallery-1.jpg", cover);
+        @include path.bg-img("top/img-gallery-1.jpg");
         width: vw.lg(330);
         aspect-ratio: 5 / 6;
-        margin: vw.lg(500) 0 0 vw.lg(105);
+        margin: vw.lg(500) 0 vw.lg(-540) vw.lg(105);
       }
     }
 
     .item2 {
       justify-content: flex-end;
-      margin-top: vw.lg(-850);
 
       @include mq.sm {
       }
 
       .img2 {
-        @include path.bg-img("top/img-gallery-2.jpg", cover);
+        @include path.bg-img("top/img-gallery-2.jpg");
         width: vw.lg(620);
         aspect-ratio: 124 / 85;
-        margin: 0;
+        margin-top: vw.lg(-400);
       }
     }
 
@@ -81,10 +80,10 @@
       }
 
       .img3 {
-        @include path.bg-img("top/img-gallery-3.jpg", cover);
-        width: 41%;
+        @include path.bg-img("top/img-gallery-3.jpg");
+        width: vw.lg(517);
         aspect-ratio: 24 / 17;
-        margin: 0 0 0 2%;
+        margin: vw.lg(150) 0 0 vw.lg(36);
       }
     }
 
@@ -93,10 +92,10 @@
       }
 
       .img4 {
-        @include path.bg-img("top/img-gallery-4.jpg", cover);
-        width: 21%;
+        @include path.bg-img("top/img-gallery-4.jpg");
+        width: vw.lg(300);
         aspect-ratio: 60 / 47;
-        margin: 0 0 0 37%;
+        margin: vw.lg(-1030) 0 0 vw.lg(441);
       }
     }
 
@@ -107,10 +106,10 @@
       }
 
       .img5 {
-        @include path.bg-img("top/img-gallery-5.jpg", cover);
-        width: 41%;
+        @include path.bg-img("top/img-gallery-5.jpg");
+        width: vw.lg(536);
         aspect-ratio: 139 / 78;
-        margin: 0 2% 0 0;
+        margin: vw.lg(-190) vw.lg(40) 0 0;
       }
     }
 
@@ -119,33 +118,33 @@
       }
 
       .img6 {
-        @include path.bg-img("top/img-gallery-6.jpg", cover);
-        width: 23%;
+        @include path.bg-img("top/img-gallery-6.jpg");
+        width: vw.lg(340);
         aspect-ratio: 1 / 1;
-        margin: 1000px 0 0 7%;
+        margin: vw.lg(620) 0 0 vw.lg(107);
       }
     }
 
     .item7 {
+      justify-content: flex-end;
+
       @include mq.sm {
       }
 
       .img7 {
-        @include path.bg-img("top/img-gallery-7.jpg", cover);
-        width: 15%;
-        aspect-ratio: 37 / 50;
-        margin: 0 0 0 32%;
+        @include path.bg-img("top/img-gallery-7.jpg");
+        width: vw.lg(700);
+        aspect-ratio: 56 / 39;
+        margin: vw.lg(-240) 0 0 0;
       }
     }
 
     .item8 {
-      justify-content: flex-end;
-
       .img8 {
-        @include path.bg-img("top/img-gallery-8.jpg", cover);
-        width: 41%;
-        aspect-ratio: 28 / 19;
-        margin: 0 7% 80vh 0;
+        @include path.bg-img("top/img-gallery-8.jpg");
+        width: vw.lg(285);
+        aspect-ratio: 37 / 50;
+        margin: vw.lg(-630) 0 0 vw.lg(550);
       }
     }
   }

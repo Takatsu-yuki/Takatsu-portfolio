@@ -10,7 +10,7 @@
 @use "../_include/geom";
 
 .works {
-  margin: 100px 108px;
+  margin: 100px 108px 190px;
 
   @include mq.sm {
     margin: 60px 24px;
