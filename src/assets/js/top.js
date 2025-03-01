@@ -7,7 +7,7 @@ const galleryItems = document.querySelectorAll("#gallery-items > div > figure");
 const galleryOptions = {
   root: null,
   rootMargin: "0px",
-  threshold: 0.1,
+  threshold: 0.2,
 };
 
 const galleryObserver = new IntersectionObserver((entries) => {
@@ -23,7 +23,10 @@ galleryItems.forEach((galleryItem) => {
 });
 
 // 視差効果をつける
-var rellax = new Rellax(".rellax");
+var rellax = new Rellax(".rellax", {
+  center: true,
+  breakpoints: [576, 770, 1200],
+});
 
 // about-me
 const monthItems = document.querySelectorAll(".month");
