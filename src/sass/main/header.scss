@@ -18,15 +18,6 @@
   }
 
   .bar {
-    // box-sizing: border-box;
-    // display: flex;
-    // justify-content: space-between;
-    // width: 100%;
-    // max-width: 1440px - 80px;
-    // height: 100%;
-    // padding-inline: 40px;
-    // margin: 0 auto;
-
     .logo {
       position: fixed;
       top: 25px;
@@ -73,11 +64,11 @@
         text-align: center;
         letter-spacing: 0;
         opacity: 0;
-        transition: 0.3s ease-in-out;
+        transition: 0.3s ease;
+      }
 
-        &.active {
-          opacity: 1;
-        }
+      .menu {
+        opacity: 1;
       }
 
       span {
@@ -87,7 +78,7 @@
         width: 100%;
         height: 3px;
         background-color: var(--color-gold);
-        transition: 0.3s ease-in-out;
+        transition: 0.3s ease.$custom1;
 
         &:first-of-type {
           transform: translateY(2px) translateY(-50%);
@@ -110,43 +101,128 @@
             transform: rotate(-15deg);
           }
         }
+
+        .menu {
+          opacity: 0;
+        }
+
+        .close {
+          opacity: 1;
+        }
       }
     }
   }
 
   nav {
     position: fixed;
-    right: 0;
-    z-index: 2;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 480px;
-    height: 100vh;
-    padding: 120px 40px;
-    background-color: var(--color-white);
-    border-left: 1px solid var(--color-gold);
-    transform: translateX(100%);
+    z-index: 20;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    backdrop-filter: blur(0);
+    transition: 0.3s ease.$custom1;
+
+    &.active {
+      visibility: visible;
+      backdrop-filter: blur(4px);
+
+      .inner {
+        transform: translateX(0);
+      }
+    }
 
     .inner {
+      position: absolute;
+      right: 0;
+      box-sizing: border-box;
       display: flex;
       flex-direction: column;
-      gap: 50px;
-      font-size: 45px;
+      justify-content: space-between;
+      width: 480px;
+      height: 100vh;
+      padding: 120px 40px 40px;
+      overflow: hidden;
+      background-color: var(--color-white);
+      border-left: 1px solid var(--color-gold);
+      transition: 0.3s ease.$custom1;
+      transform: translateX(100%);
 
-      @include typography.en-regular;
+      .bg {
+        position: absolute;
+        right: -77%;
+        bottom: -38%;
+        z-index: 0;
+        width: 750px;
+        height: 750px;
+        opacity: 0.2;
+        transform: translate(56%, 44%);
+        transform-origin: center;
+        animation: 60s infinite rotation linear;
 
-      a {
-        display: block;
-        color: var(--color-black);
-        text-decoration: none;
+        @include path.bg-img("svg/deco-circle.svg");
+      }
+
+      ul {
+        @include typography.en-regular;
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        font-size: 45px;
+
+        li {
+          position: relative;
+
+          &::before {
+            position: absolute;
+            right: 0;
+            bottom: -10px;
+            width: 0%;
+            height: 1px;
+            content: "";
+            background-color: var(--color-gold);
+            transition: 0.8s ease.$custom1;
+          }
+
+          &:has(a:hover)::before {
+            left: 0;
+            width: 100%;
+          }
+
+          a {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            width: fit-content;
+            color: var(--color-black);
+            text-decoration: none;
+
+            span {
+              font-size: 16px;
+            }
+          }
+        }
       }
     }
 
     .icons {
+      position: relative;
+      z-index: 1;
       display: flex;
       gap: 30px;
+
+      a {
+        path {
+          transition: 0.3s ease.$custom1;
+        }
+
+        &:hover {
+          path {
+            fill: var(--color-gold);
+          }
+        }
+      }
 
       .github {
         width: 50px;

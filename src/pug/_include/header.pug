@@ -1,18 +1,29 @@
 header.global-header
   .bar
     a.logo(href="#")
-    .hamburger
+    #hamburger.hamburger
       span
       span
-      p.active menu
-      p.nav close
-  nav
+      p.menu menu
+      p.close close
+  nav#nav
     .inner
-      a(href="#") Top
-      a(href="#") Works
-      a(href="#") About me
-    .icons
-      a.github
-        include ../../assets/img/svg/icon-github.svg
-      a.x
-        include ../../assets/img/svg/icon-x.svg
+      .bg
+      ul
+        li
+          a(href="#") 
+            p Top
+            span トップ
+        li
+          a(href="#") 
+            p Works
+            span 完成したクエスト報酬
+        li
+          a(href="#")
+            p About me
+            span 私について
+      .icons
+        a.github(href="#")
+          include ../../assets/img/svg/icon-github.svg
+        a.x(href="#")
+          include ../../assets/img/svg/icon-x.svg

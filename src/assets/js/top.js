@@ -1,5 +1,21 @@
 "use strict";
 
+//navigation
+const hamburger = document.querySelector("#hamburger");
+const nav = document.querySelector("#nav");
+const navLinks = document.querySelectorAll("#nav a");
+
+hamburger.addEventListener("click", () => {
+  hamburger.classList.toggle("active");
+  nav.classList.toggle("active");
+});
+navLinks.forEach((navLink) => {
+  navLink.addEventListener("click", () => {
+    hamburger.classList.remove("active");
+    nav.classList.remove("active");
+  });
+});
+
 // gallery
 const galleryItems = document.querySelectorAll("#gallery-items > div > figure");
 
@@ -32,7 +48,6 @@ var rellax = new Rellax(".rellax", {
 const monthItems = document.querySelectorAll(".month");
 const tool = document.querySelector(".tool");
 const fillItems = document.querySelectorAll(".fill");
-console.log(fillItems);
 
 document.addEventListener("DOMContentLoaded", () => {
   monthItems.forEach((item) => {
