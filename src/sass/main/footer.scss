@@ -8,3 +8,152 @@
 @use "../_include/typography";
 @use "../_include/vw";
 @use "../_include/geom";
+
+.global-footer {
+  position: relative;
+  padding-top: 240px;
+
+  .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+
+    svg {
+      width: 100%;
+    }
+  }
+
+  .inner {
+    padding-inline: 108px;
+    margin-bottom: 60px;
+
+    @include mq.sm {
+      padding-inline: 24px;
+    }
+
+    p {
+      @include typography.zen-regular;
+      margin-bottom: 30px;
+      font-size: 20px;
+      color: var(--color-gold);
+      text-align: center;
+
+      @include mq.sm {
+        font-size: 16px;
+      }
+    }
+
+    .contact {
+      display: block;
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 60px;
+      color: var(--color-gold);
+      text-decoration: none;
+
+      @include mq.sm {
+        gap: 13px;
+        margin-bottom: 20px;
+      }
+
+      svg {
+        @include mq.sm {
+          width: 40px;
+          height: 40px;
+        }
+      }
+
+      h2 {
+        @include typography.en-regular;
+        margin-top: -15px;
+        font-size: 100px;
+        line-height: 1;
+
+        @include mq.sm {
+          margin-top: -8px;
+          font-size: 40px;
+        }
+      }
+    }
+
+    .pc-content {
+      display: flex;
+      align-items: center;
+
+      @include mq.sm {
+        display: contents;
+      }
+
+      nav {
+        order: 1;
+        margin-right: 50px;
+
+        ul {
+          display: flex;
+          gap: 50px;
+
+          @include mq.sm {
+            gap: 30px;
+          }
+
+          li {
+            a {
+              @include typography.zen-regular;
+              font-size: 20px;
+              color: var(--color-gold);
+              text-decoration: none;
+
+              @include mq.sm {
+                font-size: 13px;
+              }
+            }
+          }
+        }
+      }
+
+      .sp-content {
+        display: contents;
+
+        @include mq.sm {
+          display: flex;
+          align-items: flex-end;
+        }
+
+        .copyrigft {
+          margin: 0 auto 0 0;
+          font-size: 20px;
+
+          @include mq.sm {
+            font-size: 12px;
+          }
+        }
+
+        .icons {
+          display: flex;
+          gap: 30px;
+          order: 2;
+
+          @include mq.sm {
+            gap: 20px;
+          }
+
+          svg {
+            path {
+              fill: var(--color-gold);
+            }
+
+            @include mq.sm {
+              width: 30px;
+              height: 30px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

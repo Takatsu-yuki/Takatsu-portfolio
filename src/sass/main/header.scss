@@ -53,6 +53,7 @@
       height: 44px;
       font-size: 20px;
       color: var(--color-gold);
+      cursor: pointer;
 
       @include typography.zen-bold;
       @include mq.sm {
