@@ -5,11 +5,12 @@ block vars
   - lev = 2;
 
 block links
-  link(href=`${pathToCSS}works-index.css${hash}`, rel="stylesheet", type="text/css")
+  link(href=`${pathToCSS}works-list.css${hash}`, rel="stylesheet", type="text/css")
 
 block main
-  include works-index/works-item
+  include works-list/works-item
 
 block scripts
   script(src="https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js")
-  script(src=`${pathToJS}main.js`)
+  script(src=`${pathToJS}common.js`)
+  script(src=`${pathToJS}works-list.js`)
