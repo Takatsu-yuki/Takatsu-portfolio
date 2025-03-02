@@ -21,7 +21,7 @@ export default makeConfig({
     files: {
       "index.html": "top.pug",
       "sub.html": "sub.pug",
-      "works-index.html": "works-index.pug",
+      "works-index/index.html": "works-index.pug",
     },
   },
   sass: {

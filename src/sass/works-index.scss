@@ -8,3 +8,5 @@
 @use "_include/typography";
 @use "_include/vw";
 @use "_include/geom";
+
+@include meta.load-css("works-index/works-item.scss");
