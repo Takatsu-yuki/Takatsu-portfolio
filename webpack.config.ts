@@ -22,6 +22,7 @@ export default makeConfig({
       "index.html": "top.pug",
       "sub.html": "sub.pug",
       "works-list/index.html": "works-list.pug",
+      "about-me/index.html": "about-me.pug",
     },
   },
   sass: {
@@ -31,6 +32,7 @@ export default makeConfig({
       "main.css": "main.scss",
       "top.css": "top.scss",
       "works-list.css": "works-list.scss",
+      "about-me.css": "about-me.scss",
     },
   },
   // ts: {
