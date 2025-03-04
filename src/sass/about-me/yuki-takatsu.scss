@@ -1,0 +1,140 @@
+@use "sass:meta";
+@use "sass:math";
+@use "../_include/color";
+@use "../_include/decoration";
+@use "../_include/ease";
+@use "../_include/media_query" as mq;
+@use "../_include/path";
+@use "../_include/typography";
+@use "../_include/vw";
+@use "../_include/geom";
+
+.yuki {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 108px;
+  margin-bottom: 200px;
+
+  .inner {
+    display: flex;
+    max-width: 1224px;
+    margin: 0 auto;
+
+    .left {
+      position: sticky;
+      top: calc((100vh - 600px) / 2);
+      display: flex;
+      flex-grow: 1;
+      height: 600px;
+
+      .head {
+        position: relative;
+        z-index: 1;
+        flex-grow: 1;
+        margin-right: 30px;
+
+        .circle {
+          @include geom.sq(1000px);
+          @include geom.abs(-67%, -49%);
+          z-index: 0;
+          opacity: 0.3;
+          transform-origin: center;
+
+          svg {
+            width: 100%;
+            max-width: 100%;
+            height: 100%;
+            max-height: 100%;
+          }
+        }
+
+        figure {
+          @include path.bg-img("/svg/img-name.svg");
+          width: 100%;
+          aspect-ratio: 349 / 51;
+          margin-bottom: vw.lg(30);
+        }
+
+        .active {
+          color: var(--color-white);
+          background-color: var(--color-green);
+          border-left: vw.lg(6) solid var(--color-white);
+        }
+
+        .subhead {
+          position: relative;
+          z-index: 1;
+          box-sizing: border-box;
+          width: auto;
+          padding: 10px 0 10px 30px;
+          margin-bottom: vw.lg(10);
+          color: #979795;
+          cursor: pointer;
+          border-left: vw.lg(6) solid #979795;
+          transition: 0.3 ease.$custom1;
+
+          h3 {
+            @include typography.en-regular;
+            font-size: 40px;
+            line-height: 1;
+          }
+
+          span {
+            @include typography.zen-regular;
+            font-size: 16px;
+          }
+        }
+      }
+
+      .chara {
+        position: relative;
+        z-index: 1;
+        box-sizing: border-box;
+        flex-shrink: 0;
+
+        @include path.bg-img("/top/img-aboutme-character.png", cover);
+        width: 300px;
+        height: 600px;
+        margin-right: 30px;
+      }
+    }
+
+    .right {
+      position: relative;
+      z-index: 1;
+      width: 35%;
+
+      & > div {
+        position: sticky;
+        top: calc((100vh - 600px) / 2);
+        box-sizing: border-box;
+        height: 600px;
+        padding: 30px;
+        opacity: 0;
+        transition: 0.3s ease;
+      }
+
+      & .active {
+        opacity: 1;
+      }
+
+      .slide-1 {
+        background-color: var(--color-blue);
+        opacity: 1;
+      }
+
+      .slide-2 {
+        background-color: var(--color-green);
+      }
+
+      .slide-3 {
+        background-color: var(--color-pink);
+      }
+
+      .padding {
+        padding: 10px;
+      }
+    }
+  }
+}

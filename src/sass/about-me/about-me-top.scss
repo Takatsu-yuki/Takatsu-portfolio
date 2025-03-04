@@ -1,0 +1,145 @@
+@use "sass:meta";
+@use "sass:math";
+@use "../_include/color";
+@use "../_include/decoration";
+@use "../_include/ease";
+@use "../_include/media_query" as mq;
+@use "../_include/path";
+@use "../_include/typography";
+@use "../_include/vw";
+@use "../_include/geom";
+
+.about-me-top {
+  padding-inline: 108px;
+  margin-bottom: 200px;
+
+  @include mq.sm {
+    padding-inline: 24px;
+    margin-bottom: 60px;
+  }
+
+  .inner {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1224px;
+    margin: 0 auto;
+
+    @include mq.md-sm {
+      flex-direction: column;
+      gap: 60px;
+    }
+    @include mq.sm {
+      gap: 20px;
+    }
+
+    .text {
+      position: relative;
+      box-sizing: border-box;
+      width: 57%;
+      padding: 80px 0 0 30px;
+      color: var(--color-black);
+
+      @include mq.md-sm {
+        width: 100%;
+      }
+      @include mq.sm {
+        padding: 40px 0 0 56px;
+      }
+
+      .circle {
+        @include geom.sq(165px);
+        @include path.bg-img("svg/deco-circle.svg");
+        @include geom.abs;
+        z-index: 0;
+        opacity: 0.4;
+        transform-origin: center;
+        animation: 13s infinite rotation linear;
+
+        @include mq.sm {
+          @include geom.sq(123px);
+        }
+      }
+
+      .head {
+        position: relative;
+        z-index: 1;
+        margin-bottom: 40px;
+
+        h1 {
+          @include typography.en-regular;
+          margin: -20px 0 50px;
+          font-size: 170px;
+          line-height: 0.9;
+          background: linear-gradient(
+            45deg,
+            var(--color-blue),
+            var(--color-green),
+            var(--color-pink)
+          );
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+
+          @include mq.sm {
+            margin: -10px 0 10px;
+            font-size: 60px;
+          }
+        }
+
+        span {
+          @include typography.zen-regular;
+          display: block;
+          font-size: 30px;
+          color: #92d5e5;
+
+          @include mq.sm {
+            font-size: 12px;
+          }
+        }
+      }
+
+      p {
+        @include typography.zen-regular;
+        font-size: 16px;
+        line-height: 2;
+
+        @include mq.sm {
+          font-size: 13px;
+        }
+      }
+    }
+
+    .img {
+      box-sizing: border-box;
+      width: 35%;
+      aspect-ratio: 428 / 717;
+      padding: 10px;
+      border: 3px var(--color-gold) solid;
+      border-radius: 0 60px 0 0;
+
+      @include mq.md-sm {
+        width: 43%;
+        aspect-ratio: 4 / 5;
+      }
+      @include mq.sm {
+        border-radius: 0 40px 0 0;
+      }
+
+      figure {
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 100%;
+        height: 100%;
+        max-height: 100%;
+        border: 1px var(--color-gold) solid;
+        border-radius: 0 50px 0 0;
+
+        @include path.bg-img("/about-me/img-about-me-top.png", cover);
+        @include mq.sm {
+          border-radius: 0 30px 0 0;
+        }
+      }
+    }
+  }
+}
