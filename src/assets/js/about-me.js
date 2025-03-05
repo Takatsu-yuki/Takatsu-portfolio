@@ -31,14 +31,14 @@ slides.forEach((slide) => {
   yukiObserver.observe(slide);
 });
 
-//accordion
+//slide-1 アコーディオンパネル
 const initializeDetailsAccordion = (details) => {
   const summary = details.querySelector("summary");
   const panel = details.querySelector("summary + *");
 
-  if (!(details && summary && panel)) return;
+  if (!(details && summary && panel)) return; // 必要要素が揃ってない場合は処理をやめる
 
-  let isTransitioning = false;
+  let isTransitioning = false; // 連打防止フラグ
 
   const onOpen = () => {
     if (details.open || isTransitioning) return;
@@ -87,7 +87,19 @@ const initializeDetailsAccordion = (details) => {
   });
 };
 
-// すべての details に適用
 document.querySelectorAll("details").forEach((details) => {
   initializeDetailsAccordion(details);
+});
+
+//slide-2 ステータス表示
+const monthItems = document.querySelectorAll(".month");
+const fillItems = document.querySelectorAll(".fill");
+
+document.addEventListener("DOMContentLoaded", () => {
+  monthItems.forEach((item, index) => {
+    const monthValue = Number(item.getAttribute("date-month"));
+    const widthPercentage = (monthValue / 12) * 100;
+    item.textContent = `${monthValue}ヶ月`;
+    fillItems[index].style.width = `${widthPercentage}%`;
+  });
 });

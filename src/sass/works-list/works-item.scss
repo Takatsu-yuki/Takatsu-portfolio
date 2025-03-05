@@ -115,7 +115,6 @@
           @include typography.zen-regular;
           margin-bottom: 10px;
           font-size: 20px;
-          color: var(--color-black);
 
           @include mq.sm {
             margin-bottom: 5px;
