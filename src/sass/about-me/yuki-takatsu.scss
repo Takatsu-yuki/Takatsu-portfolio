@@ -120,7 +120,16 @@
       }
 
       .slide-1 {
+        overflow: auto;
         border-top: solid 1px var(--color-hr);
+
+        &::-webkit-scrollbar-track {
+          background-color: var(--color-white);
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background-color: var(--color-gold);
+        }
 
         details {
           border-bottom: solid 1px var(--color-hr);
@@ -129,6 +138,7 @@
             display: flex;
             align-items: center;
             padding: 10px 0;
+            margin-right: 10px;
             cursor: pointer;
 
             &::-webkit-details-marker {
@@ -172,16 +182,16 @@
                 height: 3px;
                 content: "";
                 background-color: var(--color-gold);
-                transition: 1s ease.$custom1;
+                transition: 0.5s ease.$custom1;
                 transform-origin: center;
               }
 
               &::before {
-                transform: translateY(-50%);
+                transform: translateY(-50%) rotate(180deg);
               }
 
               &::after {
-                transform: translateY(-50%) rotate(90deg);
+                transform: translateY(-50%) rotate(270deg);
               }
             }
           }
@@ -189,18 +199,26 @@
           .acc-text {
             @include typography.zen-regular;
             display: grid;
-            grid-template-rows: 0fr;
-            padding-bottom: 10px;
             font-size: 16px;
-            transition: 1s ease.$custom1;
+            transition: 0.5s ease;
 
             .inner {
               overflow: hidden;
+
+              p {
+                padding-bottom: 10px;
+              }
             }
           }
 
-          &[open] .acc-text {
-            grid-template-rows: 1fr; // 開いたとき
+          &[open] span {
+            &::after {
+              transform: translateY(-50%) rotate(0);
+            }
+
+            &::before {
+              transform: translateY(-50%) rotate(0deg);
+            }
           }
         }
       }
@@ -216,68 +234,6 @@
       .padding {
         padding: 10px;
       }
-    }
-
-    .accordion {
-      max-inline-size: 40rem;
-    }
-
-    .summary {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 1em;
-      align-items: center;
-      padding-block: 16px;
-      padding-inline: 24px;
-      color: #ffffff;
-      cursor: pointer;
-      background-color: #6a6a6a;
-
-      &::-webkit-details-marker {
-        display: none;
-      }
-    }
-
-    .icon {
-      position: relative;
-      display: inline-block;
-      inline-size: 1em;
-      aspect-ratio: 1;
-
-      &::before,
-      &::after {
-        position: absolute;
-        inset: 0;
-        inline-size: 100%;
-        block-size: 1px;
-        margin: auto;
-        content: "";
-        background-color: currentcolor;
-      }
-
-      &::after {
-        transition: opacity 0.3s;
-        rotate: 90deg;
-      }
-
-      &:where(.accordion[open] *)::after {
-        opacity: 0;
-      }
-    }
-
-    .container {
-      display: grid;
-      border: 1px solid #6a6a6a;
-      transition: grid-template-rows 0.5s;
-    }
-
-    .inner {
-      overflow: hidden;
-    }
-
-    p {
-      padding: 24px;
-      line-height: 1.5;
     }
   }
 }
