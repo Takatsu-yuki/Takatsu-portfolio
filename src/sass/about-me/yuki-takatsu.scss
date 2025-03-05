@@ -71,11 +71,12 @@
           margin-bottom: vw.lg(10);
           color: #979795;
           cursor: pointer;
-          border-left: vw.lg(6) solid #979795;
+          border-left: 6px solid #979795;
           transition: 0.3 ease.$custom1;
 
           h3 {
             @include typography.en-regular;
+            margin-bottom: 5px;
             font-size: 40px;
             line-height: 1;
           }
@@ -110,7 +111,6 @@
         top: calc((100vh - 600px) / 2);
         box-sizing: border-box;
         height: 600px;
-        padding: 30px;
         opacity: 0;
         transition: 0.3s ease;
       }
@@ -120,8 +120,89 @@
       }
 
       .slide-1 {
-        background-color: var(--color-blue);
-        opacity: 1;
+        border-top: solid 1px var(--color-hr);
+
+        details {
+          border-bottom: solid 1px var(--color-hr);
+
+          summary {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            cursor: pointer;
+
+            &::-webkit-details-marker {
+              display: none;
+            }
+
+            .icon1 {
+              @include path.bg-img("/common/img-skills-1.png");
+              @include geom.sq(90px);
+              margin-right: 25px;
+            }
+
+            .icon2 {
+              @include path.bg-img("/common/img-skills-2.png");
+              @include geom.sq(90px);
+              margin-right: 25px;
+            }
+
+            .icon3 {
+              @include path.bg-img("/common/img-skills-3.png");
+              @include geom.sq(90px);
+              margin-right: 25px;
+            }
+
+            p {
+              @include typography.zen-regular;
+              margin-right: auto;
+              font-size: 20px;
+            }
+
+            span {
+              @include geom.sq(34px);
+              position: relative;
+              display: block;
+
+              &::before,
+              &::after {
+                @include geom.abs(0, 50%);
+                display: block;
+                width: 100%;
+                height: 3px;
+                content: "";
+                background-color: var(--color-gold);
+                transition: 1s ease.$custom1;
+                transform-origin: center;
+              }
+
+              &::before {
+                transform: translateY(-50%);
+              }
+
+              &::after {
+                transform: translateY(-50%) rotate(90deg);
+              }
+            }
+          }
+
+          .acc-text {
+            @include typography.zen-regular;
+            display: grid;
+            grid-template-rows: 0fr;
+            padding-bottom: 10px;
+            font-size: 16px;
+            transition: 1s ease.$custom1;
+
+            .inner {
+              overflow: hidden;
+            }
+          }
+
+          &[open] .acc-text {
+            grid-template-rows: 1fr; // 開いたとき
+          }
+        }
       }
 
       .slide-2 {
@@ -135,6 +216,68 @@
       .padding {
         padding: 10px;
       }
+    }
+
+    .accordion {
+      max-inline-size: 40rem;
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1em;
+      align-items: center;
+      padding-block: 16px;
+      padding-inline: 24px;
+      color: #ffffff;
+      cursor: pointer;
+      background-color: #6a6a6a;
+
+      &::-webkit-details-marker {
+        display: none;
+      }
+    }
+
+    .icon {
+      position: relative;
+      display: inline-block;
+      inline-size: 1em;
+      aspect-ratio: 1;
+
+      &::before,
+      &::after {
+        position: absolute;
+        inset: 0;
+        inline-size: 100%;
+        block-size: 1px;
+        margin: auto;
+        content: "";
+        background-color: currentcolor;
+      }
+
+      &::after {
+        transition: opacity 0.3s;
+        rotate: 90deg;
+      }
+
+      &:where(.accordion[open] *)::after {
+        opacity: 0;
+      }
+    }
+
+    .container {
+      display: grid;
+      border: 1px solid #6a6a6a;
+      transition: grid-template-rows 0.5s;
+    }
+
+    .inner {
+      overflow: hidden;
+    }
+
+    p {
+      padding: 24px;
+      line-height: 1.5;
     }
   }
 }
