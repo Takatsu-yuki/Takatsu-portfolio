@@ -90,6 +90,7 @@
     }
 
     .item {
+      color: var(--color-black);
       display: flex;
       justify-content: space-between;
       max-width: 1224px;
@@ -191,6 +192,7 @@
         }
 
         .item-min {
+          color: var(--color-black);
           display: block;
           display: flex;
           flex-direction: column;

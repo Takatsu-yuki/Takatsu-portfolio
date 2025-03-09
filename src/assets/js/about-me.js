@@ -103,3 +103,15 @@ document.addEventListener("DOMContentLoaded", () => {
     fillItems[index].style.width = `${widthPercentage}%`;
   });
 });
+
+//gsap
+// console.log(gsap);
+// const titleEl = document.querySelector("#h1"),
+//   titleTexts = titleEl.textContent.split("");
+
+// titleEl.textContent = "";
+// let outputTexts = "";
+// titleTexts.forEach((text) => {
+//   outputTexts += `<span>${text}</span>`;
+// });
+// titleEl.innerHTML = outputTexts;

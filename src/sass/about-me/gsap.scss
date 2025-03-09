@@ -8,3 +8,16 @@
 @use "../_include/typography";
 @use "../_include/vw";
 @use "../_include/geom";
+
+.gsap {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+
+  h1 {
+    @include typography.en-regular;
+    color: var(--color-black);
+    font-size: 100px;
+    line-height: 1;
+  }
+}

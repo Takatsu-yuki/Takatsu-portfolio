@@ -107,269 +107,271 @@
       z-index: 1;
       width: 35%;
       height: calc(600px * 5);
+      background-color: var(--color-green);
 
-      & > div {
-        @include geom.abs;
-        box-sizing: border-box;
+      .sticky-content {
+        position: sticky;
+        top: calc((100vh - 600px) / 2);
         width: 100%;
-        transition: 0.3s ease;
-      }
-
-      & .active {
-        opacity: 1;
-      }
-
-      .slide-1 {
         height: 600px;
-        overflow: auto;
-        border-top: solid 1px var(--color-hr);
 
-        &::-webkit-scrollbar-track {
-          background-color: var(--color-white);
+        & > div {
+          @include geom.abs;
+          box-sizing: border-box;
+          width: 100%;
+          visibility: visible;
+          opacity: 1;
+          transition: 0.3s ease;
         }
 
-        &::-webkit-scrollbar-thumb {
-          background-color: var(--color-gold);
-        }
+        .slide-1 {
+          height: 600px;
+          overflow: auto;
+          border-top: solid 1px var(--color-hr);
 
-        details {
-          border-bottom: solid 1px var(--color-hr);
+          &::-webkit-scrollbar-track {
+            background-color: var(--color-white);
+          }
 
-          summary {
-            display: flex;
-            align-items: center;
-            padding: 10px 0;
-            margin-right: 10px;
-            cursor: pointer;
+          &::-webkit-scrollbar-thumb {
+            background-color: var(--color-gold);
+          }
 
-            &::-webkit-details-marker {
-              display: none;
-            }
+          details {
+            border-bottom: solid 1px var(--color-hr);
 
-            .icon1 {
-              @include path.bg-img("/common/img-skills-1.png");
-              @include geom.sq(90px);
-              margin-right: 25px;
-            }
+            summary {
+              display: flex;
+              align-items: center;
+              padding: 10px 0;
+              margin-right: 10px;
+              cursor: pointer;
 
-            .icon2 {
-              @include path.bg-img("/common/img-skills-2.png");
-              @include geom.sq(90px);
-              margin-right: 25px;
-            }
+              &::-webkit-details-marker {
+                display: none;
+              }
 
-            .icon3 {
-              @include path.bg-img("/common/img-skills-3.png");
-              @include geom.sq(90px);
-              margin-right: 25px;
-            }
+              .icon1 {
+                @include path.bg-img("/common/img-skills-1.png");
+                @include geom.sq(90px);
+                margin-right: 25px;
+              }
 
-            p {
-              @include typography.zen-regular;
-              margin-right: auto;
-              font-size: 20px;
-            }
+              .icon2 {
+                @include path.bg-img("/common/img-skills-2.png");
+                @include geom.sq(90px);
+                margin-right: 25px;
+              }
 
-            span {
-              @include geom.sq(34px);
-              position: relative;
-              display: block;
+              .icon3 {
+                @include path.bg-img("/common/img-skills-3.png");
+                @include geom.sq(90px);
+                margin-right: 25px;
+              }
 
-              &::before,
-              &::after {
-                @include geom.abs(0, 50%);
+              p {
+                @include typography.zen-regular;
+                margin-right: auto;
+                font-size: 20px;
+              }
+
+              span {
+                @include geom.sq(34px);
+                position: relative;
                 display: block;
-                width: 100%;
-                height: 3px;
-                content: "";
-                background-color: var(--color-gold);
-                transition: 0.5s ease.$custom1;
-                transform-origin: center;
+
+                &::before,
+                &::after {
+                  @include geom.abs(0, 50%);
+                  display: block;
+                  width: 100%;
+                  height: 3px;
+                  content: "";
+                  background-color: var(--color-gold);
+                  transition: 0.5s ease.$custom1;
+                  transform-origin: center;
+                }
+
+                &::before {
+                  transform: translateY(-50%) rotate(180deg);
+                }
+
+                &::after {
+                  transform: translateY(-50%) rotate(270deg);
+                }
+              }
+            }
+
+            .acc-text {
+              @include typography.zen-regular;
+              display: grid;
+              font-size: 16px;
+              transition: 0.5s ease;
+
+              .inner {
+                overflow: hidden;
+
+                p {
+                  padding-bottom: 10px;
+                  margin-right: 10px;
+                }
+              }
+            }
+
+            &[open] span {
+              &::after {
+                transform: translateY(-50%) rotate(0);
               }
 
               &::before {
-                transform: translateY(-50%) rotate(180deg);
+                transform: translateY(-50%) rotate(0deg);
               }
-
-              &::after {
-                transform: translateY(-50%) rotate(270deg);
-              }
-            }
-          }
-
-          .acc-text {
-            @include typography.zen-regular;
-            display: grid;
-            font-size: 16px;
-            transition: 0.5s ease;
-
-            .inner {
-              overflow: hidden;
-
-              p {
-                padding-bottom: 10px;
-                margin-right: 10px;
-              }
-            }
-          }
-
-          &[open] span {
-            &::after {
-              transform: translateY(-50%) rotate(0);
-            }
-
-            &::before {
-              transform: translateY(-50%) rotate(0deg);
             }
           }
         }
-      }
 
-      .slide-2 {
-        @include typography.zen-regular;
-        height: 600px;
-        overflow: auto;
+        .slide-2 {
+          @include typography.zen-regular;
+          height: 600px;
+          overflow: auto;
 
-        .tool {
-          display: flex;
-          flex-wrap: wrap;
-          align-items: center;
-          justify-content: center;
-          width: fit-content;
+          .tool {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            width: fit-content;
 
-          .item {
-            margin: 20px 0;
+            .item {
+              margin: 20px 0;
 
-            .content {
-              display: flex;
-              gap: 20px;
-              align-items: flex-end;
-              justify-content: center;
-              width: 100%;
-              margin-bottom: 10px;
-
-              figure {
-                @include geom.sq(55px);
-                flex-shrink: 0;
-              }
-
-              .item1 {
-                @include path.bg-img("svg/icon-figma.svg");
-              }
-
-              .item2 {
-                @include path.bg-img("svg/icon-photoshop.svg");
-              }
-
-              .item3 {
-                @include path.bg-img("svg/icon-illustrator.svg");
-              }
-
-              .item4 {
-                @include path.bg-img("svg/icon-vscode.svg");
-              }
-
-              .status {
+              .content {
                 display: flex;
-                flex-direction: column;
-                gap: 10px;
+                gap: 20px;
+                align-items: flex-end;
                 justify-content: center;
                 width: 100%;
+                margin-bottom: 10px;
 
-                .text {
-                  display: flex;
-                  justify-content: space-between;
-                  font-size: 16px;
-                  color: #8f8e8d;
-
-                  @include mq.sm {
-                    font-size: 13px;
-                  }
+                figure {
+                  @include geom.sq(55px);
+                  flex-shrink: 0;
                 }
 
-                .bar {
-                  position: relative;
-                  height: 10px;
-                  background-color: var(--color-hr);
-                  border-radius: 100px;
+                .item1 {
+                  @include path.bg-img("svg/icon-figma.svg");
+                }
 
-                  .fill {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 0%;
-                    height: 100%;
-                    content: "";
-                    background-color: var(--color-gold);
+                .item2 {
+                  @include path.bg-img("svg/icon-photoshop.svg");
+                }
+
+                .item3 {
+                  @include path.bg-img("svg/icon-illustrator.svg");
+                }
+
+                .item4 {
+                  @include path.bg-img("svg/icon-vscode.svg");
+                }
+
+                .status {
+                  display: flex;
+                  flex-direction: column;
+                  gap: 10px;
+                  justify-content: center;
+                  width: 100%;
+
+                  .text {
+                    display: flex;
+                    justify-content: space-between;
+                    font-size: 16px;
+                    color: #8f8e8d;
+
+                    @include mq.sm {
+                      font-size: 13px;
+                    }
+                  }
+
+                  .bar {
+                    position: relative;
+                    height: 10px;
+                    background-color: var(--color-hr);
                     border-radius: 100px;
+
+                    .fill {
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      width: 0%;
+                      height: 100%;
+                      content: "";
+                      background-color: var(--color-gold);
+                      border-radius: 100px;
+                    }
                   }
                 }
               }
             }
-          }
 
-          .hr-gray {
-            width: 100%;
-            height: 1px;
-            background-color: var(--color-hr);
-          }
-        }
-      }
-
-      .slide-3 {
-        .item {
-          @include geom.abs;
-          @include typography.zen-regular;
-          display: flex;
-          flex-direction: column;
-          gap: 15px;
-          justify-content: center;
-          height: 600px;
-
-          figure {
-            @include geom.abs(-30px, 20%);
-            @include typography.en-regular;
-            z-index: 0;
-            width: calc(110% + 108px);
-            aspect-ratio: 570 / 156;
-            font-size: 200px;
-            object-position: right;
-          }
-
-          .bg-en1 {
-            @include path.bg-img("about-me/img-en-1.svg");
-          }
-
-          .bg-en2 {
-            @include path.bg-img("about-me/img-en-2.svg");
-          }
-
-          .bg-en3 {
-            @include path.bg-img("about-me/img-en-3.svg");
-          }
-
-          span {
-            @include typography.en-regular;
-            position: relative;
-            z-index: 1;
-            flex-shrink: 0;
-            width: fit-content;
-            font-size: 12px;
-            border-top: 1px solid var(--color-black);
-          }
-
-          .en,
-          .ja {
-            @include typography.zen-bold;
-            position: relative;
-            z-index: 1;
-            font-size: 20px;
+            .hr-gray {
+              width: 100%;
+              height: 1px;
+              background-color: var(--color-hr);
+            }
           }
         }
-      }
 
-      .padding {
-        padding: 10px;
+        .slide-3 {
+          .item {
+            @include geom.abs;
+            @include typography.zen-regular;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            justify-content: center;
+            height: 600px;
+
+            figure {
+              @include geom.abs(-30px, 20%);
+              @include typography.en-regular;
+              z-index: 0;
+              width: calc(110% + 108px);
+              aspect-ratio: 570 / 156;
+              font-size: 200px;
+              object-position: right;
+            }
+
+            .bg-en1 {
+              @include path.bg-img("about-me/img-en-1.svg");
+            }
+
+            .bg-en2 {
+              @include path.bg-img("about-me/img-en-2.svg");
+            }
+
+            .bg-en3 {
+              @include path.bg-img("about-me/img-en-3.svg");
+            }
+
+            span {
+              @include typography.en-regular;
+              position: relative;
+              z-index: 1;
+              flex-shrink: 0;
+              width: fit-content;
+              font-size: 12px;
+              border-top: 1px solid var(--color-black);
+            }
+
+            .en,
+            .ja {
+              @include typography.zen-bold;
+              position: relative;
+              z-index: 1;
+              font-size: 20px;
+            }
+          }
+        }
       }
     }
   }
