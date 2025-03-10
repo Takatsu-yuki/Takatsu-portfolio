@@ -1,8 +1,7 @@
 "use strict";
+
 //yuki takatsu
 const slides = document.querySelectorAll("#yuki .slide");
-const subheads = document.querySelectorAll("#yuki .subhead");
-
 // //Observerオプション
 // const yukiOptions = {
 //   root: null,
@@ -102,31 +101,35 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-//gsap練習
+//gsap
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(ScrollToPlugin);
-
-console.log(gsap);
-const titleEl = document.querySelector("#h1"),
-  titleTexts = titleEl.textContent.split("");
-
-titleEl.textContent = "";
-let outputTexts = "";
-titleTexts.forEach((text) => {
-  outputTexts += text === " " ? " " : `<span>${text}</span>`;
-});
-titleEl.innerHTML = outputTexts;
-
-const target = "#h1 span";
-
-document.querySelectorAll(target).forEach((el) => {
-  gsap.set(el, {
-    opacity: 0,
-    rotation: 90,
-  });
-});
-
 const tl = gsap.timeline();
+const mm = gsap.matchMedia();
+const right = document.querySelector("#yuki .right");
+const rightTop = right.getBoundingClientRect().top + window.scrollY;
+const offset = (window.innerHeight - 600) * 0.5;
+const rightStart = rightTop - offset;
+const subheads = document.querySelectorAll('[class^="subhead"]');
+
+// const titleEl = document.querySelector("#h1"),
+//   titleTexts = titleEl.textContent.split("");
+
+// titleEl.textContent = "";
+// let outputTexts = "";
+// titleTexts.forEach((text) => {
+//   outputTexts += text === " " ? " " : `<span>${text}</span>`;
+// });
+// titleEl.innerHTML = outputTexts;
+
+// const target = "#h1 span";
+
+// document.querySelectorAll(target).forEach((el) => {
+//   gsap.set(el, {
+//     opacity: 0,
+//     rotation: 90,
+//   });
+// });
 
 //.circleの設定
 gsap.to("#yuki .circle", 0.5, {
@@ -139,7 +142,6 @@ gsap.to("#yuki .circle", 0.5, {
     // markers: true,
   },
 });
-
 gsap.to("#yuki .circle", {
   rotation: -260,
   scrollTrigger: {
@@ -152,43 +154,96 @@ gsap.to("#yuki .circle", {
 });
 
 //.slideの設定
-gsap.to("#yuki .slide-1", {
-  scrollTrigger: {
-    trigger: "#yuki .right",
-    end: "20% center",
-    toggleClass: { targets: "#yuki .slide-1", className: "active" },
-  },
+
+mm.add("(min-width: 1201px)", () => {
+  gsap.to("#yuki .slide-1", {
+    scrollTrigger: {
+      trigger: "#yuki .right",
+      end: "20% center",
+      toggleClass: { targets: "#yuki .slide-1", className: "active" },
+    },
+  });
+  gsap.to("#yuki .slide-2", {
+    scrollTrigger: {
+      trigger: "#yuki .right",
+      start: "20% center",
+      end: "40% center",
+      toggleClass: { targets: "#yuki .slide-2", className: "active" },
+    },
+  });
+  gsap.to("#yuki .item-1", {
+    scrollTrigger: {
+      trigger: "#yuki .right",
+      start: "40% center",
+      end: "60% center",
+      toggleClass: { targets: "#yuki .item-1", className: "active" },
+    },
+  });
+  gsap.to("#yuki .item-2", {
+    scrollTrigger: {
+      trigger: "#yuki .right",
+      start: "60% center",
+      end: "80% center",
+      toggleClass: { targets: "#yuki .item-2", className: "active" },
+    },
+  });
+  gsap.to("#yuki .item-3", {
+    scrollTrigger: {
+      trigger: "#yuki .right",
+      start: "80% center",
+      toggleClass: { targets: "#yuki .item-3", className: "active" },
+    },
+  });
 });
-gsap.to("#yuki .slide-2", {
-  scrollTrigger: {
-    trigger: "#yuki .right",
-    start: "20% center",
-    end: "40% center",
-    toggleClass: { targets: "#yuki .slide-2", className: "active" },
-  },
-});
-gsap.to("#yuki .item-1", {
-  scrollTrigger: {
-    trigger: "#yuki .right",
-    start: "40% center",
-    end: "60% center",
-    toggleClass: { targets: "#yuki .item-1", className: "active" },
-  },
-});
-gsap.to("#yuki .item-2", {
-  scrollTrigger: {
-    trigger: "#yuki .right",
-    start: "60% center",
-    end: "80% center",
-    toggleClass: { targets: "#yuki .item-2", className: "active" },
-  },
-});
-gsap.to("#yuki .item-3", {
-  scrollTrigger: {
-    trigger: "#yuki .right",
-    start: "80% center",
-    toggleClass: { targets: "#yuki .item-3", className: "active" },
-  },
+mm.add("(min-width:771px) and (max-width: 1200px)", () => {
+  gsap.to("#yuki .chara-md", {
+    opacity: 0.2,
+    scrollTrigger: {
+      trigger: "#yuki .right",
+      start: "9% center",
+      end: "bottom center",
+      toggleActions: "play none none reverse",
+    },
+  });
+  gsap.to("#yuki .slide-1", {
+    scrollTrigger: {
+      trigger: "#yuki .right",
+      start: "9% center",
+      end: "20% center",
+      toggleClass: { targets: "#yuki .slide-1", className: "active" },
+    },
+  });
+  gsap.to("#yuki .slide-2", {
+    scrollTrigger: {
+      trigger: "#yuki .right",
+      start: "20% center",
+      end: "40% center",
+      toggleClass: { targets: "#yuki .slide-2", className: "active" },
+    },
+  });
+  gsap.to("#yuki .item-1", {
+    scrollTrigger: {
+      trigger: "#yuki .right",
+      start: "40% center",
+      end: "60% center",
+      toggleClass: { targets: "#yuki .item-1", className: "active" },
+    },
+  });
+  gsap.to("#yuki .item-2", {
+    scrollTrigger: {
+      trigger: "#yuki .right",
+      start: "60% center",
+      end: "80% center",
+      toggleClass: { targets: "#yuki .item-2", className: "active" },
+    },
+  });
+  gsap.to("#yuki .item-3", {
+    scrollTrigger: {
+      trigger: "#yuki .right",
+      start: "80% center",
+      toggleClass: { targets: "#yuki .item-3", className: "active" },
+    },
+  });
 });
 
 //.subheadの設定
@@ -217,28 +272,11 @@ gsap.to("#yuki .subhead-3", {
 
 //.subheadをクリックした時の動き
 
-const right = document.querySelector("#yuki .right");
-const rightTop = right.getBoundingClientRect().top + window.scrollY;
-const offset = (window.innerHeight - 600) * 0.5;
-const rightStart = rightTop - offset;
-
-console.log(rightTop);
-
-document.querySelector("#yuki .subhead-1").addEventListener("click", function () {
-  gsap.to(window, {
-    duration: 0,
-    scrollTo: { y: rightStart },
-  });
-});
-document.querySelector("#yuki .subhead-2").addEventListener("click", function () {
-  gsap.to(window, {
-    duration: 0,
-    scrollTo: { y: rightStart + 600 },
-  });
-});
-document.querySelector("#yuki .subhead-3").addEventListener("click", function () {
-  gsap.to(window, {
-    duration: 0,
-    scrollTo: { y: rightStart + 1200 },
+subheads.forEach((subhead, index) => {
+  subhead.addEventListener("click", function () {
+    gsap.to(window, {
+      duration: 0,
+      scrollTo: { y: rightStart + 600 * index },
+    });
   });
 });

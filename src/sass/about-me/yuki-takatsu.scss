@@ -35,12 +35,21 @@
         flex-grow: 1;
         margin-right: 30px;
 
+        @include mq.md {
+          margin-right: 60px;
+        }
+
         .circle {
           @include geom.sq(1000px);
-          @include geom.abs(-89%, -50%);
+          @include geom.abs(50%, 34%);
           z-index: 0;
           opacity: 0;
           transform-origin: center;
+          translate: -50% -50%;
+
+          @include mq.md {
+            translate: -80% -40%;
+          }
 
           svg {
             width: 100%;
@@ -58,34 +67,35 @@
         }
 
         [class^="subhead"] {
-          display: block;
           position: relative;
-          cursor: pointer;
           z-index: 1;
           box-sizing: border-box;
+          display: block;
           width: auto;
           padding: 10px 0 10px 30px;
           margin-bottom: vw.lg(10);
           color: #979795;
+          text-decoration: none;
+          cursor: pointer;
           border-left: 6px solid #979795;
           transition: 0.3s ease.$custom1;
-          text-decoration: none;
 
           &::before {
-            content: "";
-            @include geom.abs(0, 0);
+            z-index: -1;
             width: 100%;
             height: 100%;
-            z-index: -1;
             clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
-            transition: 0.3s ease.$custom1;
+            content: "";
             background: linear-gradient(
               90deg,
-              rgba(146, 213, 229, 1) 0%,
-              rgba(198, 230, 225, 1) 75%,
-              rgba(233, 209, 213, 0.1) 95%,
-              rgba(233, 209, 213, 0) 100%
+              rgb(146 213 229 / 100%) 0%,
+              rgb(198 230 225 / 100%) 75%,
+              rgb(233 209 213 / 10%) 95%,
+              rgb(233 209 213 / 0%) 100%
             );
+            transition: 0.3s ease.$custom1;
+
+            @include geom.abs(0, 0);
           }
 
           h3 {
@@ -100,10 +110,12 @@
             font-size: 16px;
           }
         }
+
         .active {
-          transition: 0.3 ease.$custom1;
           color: var(--color-white);
           border-left: 6px solid var(--color-blue);
+          transition: 0.3 ease.$custom1;
+
           &::before {
             clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
           }
@@ -116,21 +128,23 @@
         z-index: 1;
         box-sizing: border-box;
         flex-shrink: 0;
-
         width: 370px;
         height: 600px;
         margin-right: 30px;
-        mix-blend-mode: multiply;
+        background-position: center;
 
-        &::before {
-          @include geom.abs(0, 0);
-          width: 100%;
-          height: 100%;
-          content: "";
-          background-color: var(--color-blue);
-          z-index: -1;
-          mix-blend-mode: multiply;
+        @include mq.md {
+          display: none;
         }
+
+        // &::before {
+        //   @include geom.abs(0, 0);
+        //   z-index: -1;
+        //   width: 100%;
+        //   height: 100%;
+        //   content: "";
+        //   background-color: var(--color-blue);
+        // }
       }
     }
 
@@ -139,6 +153,10 @@
       z-index: 1;
       width: 35%;
       height: calc(600px * 5);
+
+      @include mq.md {
+        width: 50%;
+      }
       // background: linear-gradient(
       //   0deg,
       //   rgba(146, 213, 229, 1) 0%,
@@ -158,6 +176,19 @@
         width: 100%;
         height: 600px;
 
+        .chara-md {
+          @include mq.md {
+            @include geom.abs();
+            @include path.bg-img("/top/img-aboutme-character.png");
+            content: "";
+            width: 100%;
+            height: 100%;
+            opacity: 1;
+            transition: 0.1s ease;
+            background-position: center;
+          }
+        }
+
         & > div {
           @include geom.abs;
           box-sizing: border-box;
@@ -165,13 +196,14 @@
         }
 
         .slide {
-          opacity: 0;
           visibility: hidden;
+          opacity: 0;
           transition: 0.3s ease;
         }
+
         .active {
-          opacity: 1;
           visibility: visible;
+          opacity: 1;
         }
 
         .slide-1 {

@@ -16,10 +16,10 @@
 
   h1 {
     @include typography.en-regular;
+    position: relative;
     font-size: 100px;
     line-height: 1;
     color: var(--color-black);
-    position: relative;
 
     span {
       display: inline-block;
