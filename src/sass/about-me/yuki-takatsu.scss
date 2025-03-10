@@ -39,7 +39,7 @@
           @include geom.sq(1000px);
           @include geom.abs(-89%, -50%);
           z-index: 0;
-          opacity: 0.3;
+          opacity: 0;
           transform-origin: center;
 
           svg {
@@ -57,23 +57,36 @@
           margin-bottom: vw.lg(30);
         }
 
-        .active {
-          color: var(--color-white);
-          background-color: var(--color-green);
-          border-left: vw.lg(6) solid var(--color-white);
-        }
-
-        .subhead {
+        [class^="subhead"] {
+          display: block;
           position: relative;
+          cursor: pointer;
           z-index: 1;
           box-sizing: border-box;
           width: auto;
           padding: 10px 0 10px 30px;
           margin-bottom: vw.lg(10);
           color: #979795;
-          cursor: pointer;
           border-left: 6px solid #979795;
-          transition: 0.3 ease.$custom1;
+          transition: 0.3s ease.$custom1;
+          text-decoration: none;
+
+          &::before {
+            content: "";
+            @include geom.abs(0, 0);
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+            transition: 0.3s ease.$custom1;
+            background: linear-gradient(
+              90deg,
+              rgba(146, 213, 229, 1) 0%,
+              rgba(198, 230, 225, 1) 75%,
+              rgba(233, 209, 213, 0.1) 95%,
+              rgba(233, 209, 213, 0) 100%
+            );
+          }
 
           h3 {
             @include typography.en-regular;
@@ -87,18 +100,37 @@
             font-size: 16px;
           }
         }
+        .active {
+          transition: 0.3 ease.$custom1;
+          color: var(--color-white);
+          border-left: 6px solid var(--color-blue);
+          &::before {
+            clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
+          }
+        }
       }
 
       .chara {
+        @include path.bg-img("/top/img-aboutme-character.png");
         position: relative;
         z-index: 1;
         box-sizing: border-box;
         flex-shrink: 0;
 
-        @include path.bg-img("/top/img-aboutme-character.png");
         width: 370px;
         height: 600px;
         margin-right: 30px;
+        mix-blend-mode: multiply;
+
+        &::before {
+          @include geom.abs(0, 0);
+          width: 100%;
+          height: 100%;
+          content: "";
+          background-color: var(--color-blue);
+          z-index: -1;
+          mix-blend-mode: multiply;
+        }
       }
     }
 
@@ -107,7 +139,18 @@
       z-index: 1;
       width: 35%;
       height: calc(600px * 5);
-      background-color: var(--color-green);
+      // background: linear-gradient(
+      //   0deg,
+      //   rgba(146, 213, 229, 1) 0%,
+      //   rgba(146, 213, 229, 1) 20%,
+      //   rgba(198, 230, 225, 1) 20%,
+      //   rgba(201, 229, 224, 1) 40%,
+      //   rgba(233, 209, 213, 1) 40%,
+      //   rgba(233, 209, 213, 1) 60%,
+      //   rgba(146, 213, 229, 1) 60%,
+      //   rgba(146, 213, 229, 1) 80%,
+      //   rgba(233, 209, 213, 1) 80%
+      // );
 
       .sticky-content {
         position: sticky;
@@ -119,9 +162,16 @@
           @include geom.abs;
           box-sizing: border-box;
           width: 100%;
-          visibility: visible;
-          opacity: 1;
+        }
+
+        .slide {
+          opacity: 0;
+          visibility: hidden;
           transition: 0.3s ease;
+        }
+        .active {
+          opacity: 1;
+          visibility: visible;
         }
 
         .slide-1 {
@@ -322,7 +372,7 @@
         }
 
         .slide-3 {
-          .item {
+          > div {
             @include geom.abs;
             @include typography.zen-regular;
             display: flex;

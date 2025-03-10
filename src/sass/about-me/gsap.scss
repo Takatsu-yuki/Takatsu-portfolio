@@ -10,14 +10,19 @@
 @use "../_include/geom";
 
 .gsap {
-  height: 100vh;
   display: grid;
   place-items: center;
+  height: 100vh;
 
   h1 {
     @include typography.en-regular;
-    color: var(--color-black);
     font-size: 100px;
     line-height: 1;
+    color: var(--color-black);
+    position: relative;
+
+    span {
+      display: inline-block;
+    }
   }
 }
