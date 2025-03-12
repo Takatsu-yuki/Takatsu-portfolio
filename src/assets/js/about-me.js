@@ -1,33 +1,5 @@
 "use strict";
 
-//yuki takatsu
-// const slides = document.querySelectorAll("#yuki .slide");
-// //Observerオプション
-// const yukiOptions = {
-//   root: null,
-//   rootMargin: `${-window.innerHeight / 2 + 300}px 0px ${-window.innerHeight / 2 + 300}px 0px`,
-//   threshold: 1,
-// };
-
-// const yukiObserver = new IntersectionObserver((entries) => {
-//   entries.forEach((entry) => {
-//     if (entry.isIntersecting) {
-//       entry.target.classList.add("active");
-//     } else {
-//       if (lastScrollY > window.scrollY) {
-//         entry.target.classList.remove("active");
-//       }
-//     }
-//     console.log(lastScrollY);
-//   });
-//   lastScrollY = window.scrollY;
-// }, yukiOptions);
-
-// //監視対象
-// slides.forEach((slide) => {
-//   yukiObserver.observe(slide);
-// });
-
 //slide-1 アコーディオンパネル
 const initializeDetailsAccordion = (details) => {
   const summary = details.querySelector("summary");
@@ -111,7 +83,8 @@ const rightTop = right.getBoundingClientRect().top + window.scrollY;
 const offset = (window.innerHeight - 600) * 0.5;
 const rightStart = rightTop - offset;
 const subheads = document.querySelectorAll('[class^="subhead"]');
-const slides = document.querySelectorAll("#yuki [class^='slide-']");
+const bgEn = document.querySelectorAll("#yuki [class^='bg-en']");
+const slide3Items = document.querySelectorAll("#yuki [class^='item-']");
 const dots = document.querySelectorAll(".dots span");
 
 // const titleEl = document.querySelector("#h1"),
@@ -134,25 +107,27 @@ const dots = document.querySelectorAll(".dots span");
 // });
 
 //.circleの設定
-gsap.to("#yuki .circle", 0.5, {
-  opacity: 0.5,
-  scrollTrigger: {
-    trigger: "#yuki .right",
-    start: "298px center",
-    end: "bottom center",
-    toggleActions: "play none none reverse",
-    // markers: true,
-  },
-});
-gsap.to("#yuki .circle", {
-  rotation: -260,
-  scrollTrigger: {
-    trigger: "#yuki .right",
-    start: "top center",
-    end: "bottom+=300px center",
-    toggleActions: "play none none reverse",
-    scrub: 2,
-  },
+mm.add("(min-width: 771px)", () => {
+  gsap.to("#yuki .circle", 0.5, {
+    opacity: 0.5,
+    scrollTrigger: {
+      trigger: "#yuki .right",
+      start: "298px center",
+      end: "bottom center",
+      toggleActions: "play none none reverse",
+      // markers: true,
+    },
+  });
+  gsap.to("#yuki .circle", {
+    rotation: -260,
+    scrollTrigger: {
+      trigger: "#yuki .right",
+      start: "top center",
+      end: "bottom+=300px center",
+      toggleActions: "play none none reverse",
+      scrub: 2,
+    },
+  });
 });
 
 //.slideの設定
@@ -263,6 +238,7 @@ mm.add("(max-width: 770px)", () => {
 });
 
 //.subheadの設定
+//tablet以上
 mm.add("(min-width: 771px)", () => {
   gsap.to("#yuki .subhead-1", {
     scrollTrigger: {
@@ -287,34 +263,68 @@ mm.add("(min-width: 771px)", () => {
     },
   });
 });
+//spサイズ
 mm.add("(max-width: 770px)", () => {
-  gsap.set(subheads[0], { addClass: "active" });
-  subheads.forEach((subhead, index) => {
-    gsap.to(subhead, {
-      scrollTrigger: {
-        trigger: slides[index],
-        start: "top +=172px",
-        end: "bottom +=172px",
-        toggleClass: { targets: subhead, className: "active" },
-        markers: true,
-      },
-    });
+  gsap.to("#yuki .subhead-1", {
+    scrollTrigger: {
+      endTrigger: "#yuki .slide-1",
+      startTrigger: "#yuki. .subhead-1",
+      start: "top bottom",
+      end: "bottom +=172px",
+      toggleClass: { targets: ".subhead-1", className: "active" },
+    },
   });
-  dots.forEach((dot, index) => {
-    gsap.to(dot, {
-      scrollTrigger: {
-        trigger: slides[index],
-        start: "top +=172px",
-        end: "bottom +=172px",
-        toggleClass: { targets: dot, className: "active" },
-      },
-    });
+  gsap.to("#yuki .subhead-2", {
+    scrollTrigger: {
+      trigger: "#yuki .slide-2",
+      start: "top +=172px",
+      end: "bottom +=172px",
+      toggleClass: { targets: ".subhead-2", className: "active" },
+    },
   });
+  gsap.to("#yuki .subhead-3", {
+    scrollTrigger: {
+      trigger: "#yuki .slide-3",
+      start: "top +=172px",
+      end: "bottom +=172px",
+      toggleClass: { targets: ".subhead-3", className: "active" },
+    },
+  });
+  gsap.to("#yuki .dot-1", {
+    scrollTrigger: {
+      endTrigger: "#yuki .slide-1",
+      startTrigger: "#yuki. dot-1",
+      start: "top bottom",
+      end: "bottom +=172px",
+      toggleClass: { targets: ".dot-1", className: "active" },
+    },
+  });
+  gsap.to("#yuki .dot-2", {
+    scrollTrigger: {
+      trigger: "#yuki .slide-2",
+      start: "top +=172px",
+      end: "bottom +=172px",
+      toggleClass: { targets: ".dot-2", className: "active" },
+    },
+  });
+  gsap.to("#yuki .dot-3", {
+    scrollTrigger: {
+      trigger: "#yuki .slide-3",
+      start: "top +=172px",
+      end: "bottom +=172px",
+      toggleClass: { targets: ".dot-3", className: "active" },
+    },
+  });
+
   gsap.to("#yuki .head", {
     scrollTrigger: {
-      trigger: "#yuki .item-3",
-      start: "top +=172px",
-      position: relative,
+      trigger: "#yuki .head",
+      start: "bottom +=172px",
+      endTrigger: "#yuki .item-2",
+      end: "bottom +=172px",
+      pin: true,
+      pinSpacing: false,
+      // markers: true,
     },
   });
 });
@@ -327,6 +337,33 @@ mm.add("(min-width: 771px)", () => {
         duration: 0,
         scrollTo: { y: rightStart + 600 * index },
       });
+    });
+  });
+});
+
+//charaの動き
+mm.add("(max-width: 770px)", () => {
+  gsap.to("#yuki .bg-cont", {
+    scrollTrigger: {
+      trigger: "#yuki .bg-cont",
+      start: "top +=172px",
+      endTrigger: "#yuki .item-2",
+      end: "bottom +=172px",
+      pin: "#yuki .bg-cont",
+      pinSpacing: false,
+      markers: true,
+    },
+  });
+  bgEn.forEach((bg, index) => {
+    gsap.to(bg, {
+      alpha: 1,
+      duration: 0.1,
+      scrollTrigger: {
+        trigger: slide3Items[index],
+        start: "top +=172px",
+        end: "bottom +=172px",
+        toggleActions: "play reverse play reverse",
+      },
     });
   });
 });
