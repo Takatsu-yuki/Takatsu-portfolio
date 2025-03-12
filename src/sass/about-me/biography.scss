@@ -8,3 +8,188 @@
 @use "../_include/typography";
 @use "../_include/vw";
 @use "../_include/geom";
+
+.biography {
+  margin-bottom: 200px;
+  padding-inline: 108px;
+
+  .inner {
+    max-width: 1224px;
+    margin: 0 auto;
+
+    .head {
+      margin-bottom: 50px;
+      h2 {
+        @include typography.en-regular;
+        font-size: 92px;
+        margin-bottom: 35px;
+        line-height: 1;
+      }
+      p {
+        @include typography.zen-regular;
+        font-size: 16px;
+        line-height: 1;
+      }
+    }
+    .timeline {
+      display: flex;
+      gap: 50px;
+      align-items: center;
+      justify-content: center;
+
+      .pagination {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+
+        li {
+          cursor: pointer;
+
+          &.active {
+            .img::before {
+              opacity: 0;
+            }
+          }
+
+          .border {
+            @include geom.sq(100px);
+            position: relative;
+            box-sizing: border-box;
+            border-radius: 50%;
+            border: solid 1px var(--color-gold);
+            padding: 3px;
+            display: grid;
+            place-items: center;
+            margin-bottom: 10px;
+
+            &::before,
+            &::after {
+              position: absolute;
+              content: "";
+              display: block;
+              width: 5px;
+              height: 6px;
+              background-color: var(--color-gold);
+              clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            }
+
+            &::before {
+              top: -3px;
+              left: 50%;
+              transform: translateX(-50%);
+            }
+            &::after {
+              bottom: -4px;
+              left: 50%;
+              transform: translateX(-50%);
+            }
+
+            .img {
+              position: relative;
+              box-sizing: border-box;
+              width: 100%;
+              height: 100%;
+              aspect-ratio: 1/1;
+              border-radius: 50%;
+              border: solid 1px var(--color-gold);
+              overflow: hidden;
+
+              &::before {
+                @include geom.abs;
+                content: "";
+                display: block;
+                width: 100%;
+                height: 100%;
+                aspect-ratio: 1/1;
+                transition: 0.3 ease.$custom1;
+                background-color: rgba($color: #122234, $alpha: 0.3);
+              }
+
+              img {
+                width: 100%;
+                height: 100%;
+                max-width: 100%;
+                max-height: 100%;
+              }
+            }
+          }
+          span {
+            @include typography.zen-regular;
+            font-size: 16px;
+            line-height: 1;
+          }
+        }
+      }
+      .content {
+        position: relative;
+        width: 70%;
+        li {
+          @include geom.abs();
+          width: 100%;
+          box-sizing: border-box;
+          border-radius: 0 60px 0 0;
+          border: solid 2px var(--color-gold);
+          max-width: 864px;
+          padding: 10px;
+          background-color: var(--color-white);
+          transform: translateY(-50%);
+
+          &::before {
+          }
+          .border {
+            box-sizing: border-box;
+            display: flex;
+            border: solid 1px var(--color-gold);
+            border-radius: 0 50px 0 0;
+            justify-content: space-between;
+            overflow: hidden;
+
+            .text {
+              @include typography.zen-regular;
+              box-sizing: border-box;
+              line-height: 2;
+              width: 46%;
+              text-align: center;
+              padding: 40px 0 40px 40px;
+              display: flex;
+              flex-direction: column;
+              gap: 20px;
+
+              span {
+                @include typography.en-regular;
+              }
+
+              .h3 {
+                display: flex;
+                gap: 20px;
+                align-items: flex-end;
+                justify-content: center;
+                line-height: 1;
+
+                h3 {
+                  font-size: 50px;
+                  font-weight: 400;
+                }
+              }
+
+              .left {
+                text-align: left;
+              }
+            }
+            .img {
+              width: 51%;
+              img {
+                width: 100%;
+                height: 100%;
+                max-width: 100%;
+                max-height: 100%;
+                object-fit: contain;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

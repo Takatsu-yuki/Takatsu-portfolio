@@ -1,0 +1,67 @@
+mixin pagination(num, span)
+  li
+    .border
+      .img
+        img(src=`${pathToImgAboutMe}img-pagination-${num}.png`, alt=`pagination-${num}`)
+    span #{ span }
+
+section#biography.biography
+  .inner
+    .head
+      h2 Biography
+      p デザイナーを目指すまでの旅の道のり
+    .timeline
+      ul.pagination
+        +pagination(1, "幼少期")
+        +pagination(2, "大学生")
+        +pagination(3, "社会人")
+        +pagination(4, "現在")
+      ul.content
+        li
+          .border
+            .text
+              span Childhood
+              .h3
+                h3 幼少期
+                span Lv.12
+              .hr
+              p 特性：好奇心旺盛<br>武器：魔法の鉛筆
+              p.left 絵や漫画、手芸、料理など、多岐にわたる創作活動に夢中になった時期。 オリジナルのマスコットを制作し、友達の間で流行するほどの人気を獲得。 制作に追われる日々も、喜んでもらえることが何より嬉しかった。
+            .img
+              img(src=`${pathToImgAboutMe}img-biography-1.jpg`, alt="幼少期のイラスト")
+        li
+          .border
+            .text
+              span University days
+              .h3
+                h3 大学時代
+                span Lv.19
+              .hr
+              p 特性：創造力<br>武器：エンチャントデジタルペン
+              p.left クリエイティブな仕事への憧れを抱きつつ、管理栄養士の資格を取得する堅実な選択を進んだ。プライベートでは趣味のイラスト制作に全力を注ぎ、同人誌即売会への参加を通じながら、自己表現と発信力を磨き続けた。この経験が、自身の創造力を大きく広げた。
+            .img
+              img(src=`${pathToImgAboutMe}img-biography-2.jpg`, alt="大学時代のイラスト")
+        li
+          .border
+            .text
+              span Member of society
+              .h3
+                h3 社会人
+                span Lv.23
+              .hr
+              p 特性：サポートスキル<br>武器：育みのスプーン
+              p.left 保育園の栄養士として、子どもたちの成長を支える給食を提供する一方、食育活動にも力を入れた。また、手書き書類のデジタル化を提案し、職場全体の効率化を実現。サポート力とプロジェクト推進力を身につけた。
+            .img
+              img(src=`${pathToImgAboutMe}img-biography-3.jpg`, alt="社会人のイラスト")
+        li
+          .border
+            .text
+              span The present
+              .h3
+                h3 現在
+                span Lv.29
+              .hr
+              p 特性：好奇心旺盛<br>武器：クリエイターズツール
+              p.left 自分の将来を見つめ直し、好きなことを仕事にするためにWeb制作スキルの習得を決意。スクールではデザインとコーディングの基礎を学び、日々の努力を重ねながら新たなキャリアに向けた準備を進めている。
+            .img
+              img(src=`${pathToImgAboutMe}img-biography-4.jpg`, alt="現在のイラスト")
