@@ -153,11 +153,11 @@
         }
         @include mq.sm {
           position: static;
+          z-index: 2;
           order: 1;
+          margin-top: vw.sm(-26);
           font-size: vw.sm(50);
           text-align: center;
-          margin-top: vw.sm(-26);
-          z-index: 2;
         }
 
         h1 {
@@ -172,9 +172,9 @@
             letter-spacing: 0;
           }
           @include mq.sm {
+            margin-bottom: vw.lg(40);
             font-size: vw.sm(48);
             line-height: 0.9;
-            margin-bottom: vw.lg(40);
           }
         }
 

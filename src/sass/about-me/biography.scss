@@ -61,7 +61,6 @@
       @include mq.md {
         flex-direction: column;
       }
-
       @include mq.sm {
         flex-direction: column;
         gap: 20px;
@@ -77,12 +76,12 @@
           display: flex;
           flex-direction: row;
         }
-
         @include mq.sm {
-          gap: 10px;
           display: flex;
           flex-direction: row;
+          gap: 10px;
         }
+
         li {
           cursor: pointer;
 
@@ -191,13 +190,12 @@
           width: 100%;
           max-width: 864px;
         }
-
         @include mq.sm {
           width: 100%;
         }
 
         li {
-          @include geom.abs;
+          @include geom.abs(50%, 50%);
           box-sizing: border-box;
           width: 100%;
           max-width: 864px;
@@ -208,23 +206,26 @@
           border-radius: 0 60px 0 0;
           opacity: 0;
           transition: 1s ease.$custom1;
-          translate: -20px 0;
-
-          &:nth-of-type(2) {
-            position: static;
-          }
-
+          transform: translate(calc(-50% - 20px), -50%);
           &.active {
             visibility: visible;
             opacity: 1;
-            translate: 0 0;
+            transform: translate(-50%, -50%);
+          }
+
+          &:nth-of-type(2) {
+            position: static;
+            transform: translate(-20px, 0);
+
+            &.active {
+              transform: translate(0, 0);
+            }
           }
 
           @include mq.md {
-            translate: -20px 0;
             margin: 0 auto;
+            translate: -20px 0;
           }
-
           @include mq.sm {
             border-radius: 0 50px 0 0;
           }
@@ -239,23 +240,23 @@
             border-radius: 0 50px 0 0;
 
             @include mq.sm {
-              border-radius: 0 40px 0 0;
               flex-direction: column-reverse;
-              padding: 20px;
               gap: 20px;
+              padding: 20px;
+              border-radius: 0 40px 0 0;
             }
 
             figure {
-              @include geom.abs();
+              @include geom.abs;
               @include path.bg-img("svg/deco-circle.svg");
+              z-index: -1;
               width: 477px;
               height: auto;
               aspect-ratio: 1/1;
-              z-index: -1;
               opacity: 0.2;
               transform-origin: center;
-              translate: -55% -55%;
               rotate: 30deg;
+              translate: -55% -55%;
 
               @include mq.sm {
                 width: 100vw;
@@ -280,7 +281,6 @@
 
               span {
                 @include typography.en-regular;
-
                 @include mq.sm {
                   display: none;
                 }
@@ -311,6 +311,7 @@
 
                   @include mq.sm {
                     font-size: 13px;
+                    display: block;
                   }
                 }
               }
@@ -327,8 +328,8 @@
             }
 
             .img {
-              width: 51%;
               position: relative;
+              width: 51%;
 
               @include mq.sm {
                 width: 100%;

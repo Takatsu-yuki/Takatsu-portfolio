@@ -28,9 +28,9 @@
       display: flex;
       flex-direction: column;
       gap: 40px;
+      width: fit-content;
       margin: 0 auto 100px;
       color: var(--color-gold);
-      width: fit-content;
 
       @include mq.sm {
         gap: 10px;
@@ -39,9 +39,9 @@
 
       h2 {
         @include typography.en-regular;
+        width: fit-content;
         font-size: 70px;
         line-height: 1;
-        width: fit-content;
 
         @include mq.sm {
           font-size: 30px;
@@ -50,8 +50,8 @@
 
       p {
         @include typography.zen-regular;
-        font-size: 20px;
         width: fit-content;
+        font-size: 20px;
 
         @include mq.sm {
           font-size: 12px;
