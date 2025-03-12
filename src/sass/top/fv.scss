@@ -18,7 +18,7 @@
     height: vw.md(960);
   }
   @include mq.sm {
-    height: vw.sm(543);
+    height: vw.sm(490);
     margin-bottom: 60px;
   }
 
@@ -156,6 +156,8 @@
           order: 1;
           font-size: vw.sm(50);
           text-align: center;
+          margin-top: vw.sm(-26);
+          z-index: 2;
         }
 
         h1 {
@@ -170,7 +172,9 @@
             letter-spacing: 0;
           }
           @include mq.sm {
-            font-size: vw.sm(50);
+            font-size: vw.sm(48);
+            line-height: 0.9;
+            margin-bottom: vw.lg(40);
           }
         }
 

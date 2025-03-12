@@ -368,7 +368,7 @@ mm.add("(max-width: 770px)", () => {
       end: "bottom +=172px",
       pin: "#yuki .bg-cont",
       pinSpacing: false,
-      markers: true,
+      // markers: true,
     },
   });
   bgEn.forEach((bg, index) => {

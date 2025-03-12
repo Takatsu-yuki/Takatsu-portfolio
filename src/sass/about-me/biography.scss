@@ -13,6 +13,11 @@
   padding-inline: 108px;
   margin-bottom: 200px;
 
+  @include mq.sm {
+    padding-inline: 24px;
+    margin-bottom: 60px;
+  }
+
   .inner {
     max-width: 1224px;
     margin: 0 auto;
@@ -20,17 +25,30 @@
     .head {
       margin-bottom: 50px;
 
+      @include mq.sm {
+        margin-bottom: 30px;
+      }
+
       h2 {
         @include typography.en-regular;
         margin-bottom: 35px;
         font-size: 92px;
         line-height: 1;
+
+        @include mq.sm {
+          margin-bottom: 10px;
+          font-size: 45px;
+        }
       }
 
       p {
         @include typography.zen-regular;
         font-size: 16px;
         line-height: 1;
+
+        @include mq.sm {
+          font-size: 12px;
+        }
       }
     }
 
@@ -40,12 +58,31 @@
       align-items: center;
       justify-content: center;
 
+      @include mq.md {
+        flex-direction: column;
+      }
+
+      @include mq.sm {
+        flex-direction: column;
+        gap: 20px;
+      }
+
       .pagination {
         display: flex;
         flex-direction: column;
         gap: 20px;
         text-align: center;
 
+        @include mq.md {
+          display: flex;
+          flex-direction: row;
+        }
+
+        @include mq.sm {
+          gap: 10px;
+          display: flex;
+          flex-direction: row;
+        }
         li {
           cursor: pointer;
 
@@ -72,6 +109,15 @@
             border: solid 1px var(--color-gold);
             border-radius: 50%;
 
+            @include mq.sm {
+              width: 100%;
+              max-width: 100px;
+              height: auto;
+              aspect-ratio: 1 /1;
+              padding: 2px;
+              margin-bottom: 5px;
+            }
+
             &::before,
             &::after {
               position: absolute;
@@ -84,7 +130,7 @@
             }
 
             &::before {
-              top: -3px;
+              top: -4px;
               left: 50%;
               transform: translateX(-50%);
             }
@@ -129,6 +175,10 @@
             @include typography.zen-regular;
             font-size: 16px;
             line-height: 1;
+
+            @include mq.sm {
+              font-size: 13px;
+            }
           }
         }
       }
@@ -137,33 +187,80 @@
         position: relative;
         width: 70%;
 
+        @include mq.md {
+          width: 100%;
+          max-width: 864px;
+        }
+
+        @include mq.sm {
+          width: 100%;
+        }
+
         li {
           @include geom.abs;
           box-sizing: border-box;
           width: 100%;
           max-width: 864px;
           padding: 10px;
+          visibility: hidden;
           background-color: var(--color-white);
           border: solid 2px var(--color-gold);
           border-radius: 0 60px 0 0;
-          translate: -20px -50%;
-          transition: 1s ease.$custom1;
-          visibility: hidden;
           opacity: 0;
+          transition: 1s ease.$custom1;
+          translate: -20px 0;
+
+          &:nth-of-type(2) {
+            position: static;
+          }
 
           &.active {
-            opacity: 1;
             visibility: visible;
-            translate: 0 -50%;
+            opacity: 1;
+            translate: 0 0;
+          }
+
+          @include mq.md {
+            translate: -20px 0;
+            margin: 0 auto;
+          }
+
+          @include mq.sm {
+            border-radius: 0 50px 0 0;
           }
 
           .border {
+            position: relative;
             box-sizing: border-box;
             display: flex;
             justify-content: space-between;
             overflow: hidden;
             border: solid 1px var(--color-gold);
             border-radius: 0 50px 0 0;
+
+            @include mq.sm {
+              border-radius: 0 40px 0 0;
+              flex-direction: column-reverse;
+              padding: 20px;
+              gap: 20px;
+            }
+
+            figure {
+              @include geom.abs();
+              @include path.bg-img("svg/deco-circle.svg");
+              width: 477px;
+              height: auto;
+              aspect-ratio: 1/1;
+              z-index: -1;
+              opacity: 0.2;
+              transform-origin: center;
+              translate: -55% -55%;
+              rotate: 30deg;
+
+              @include mq.sm {
+                width: 100vw;
+              }
+            }
 
             .text {
               @include typography.zen-regular;
@@ -176,8 +273,17 @@
               line-height: 2;
               text-align: center;
 
+              @include mq.sm {
+                width: 100%;
+                padding: 0;
+              }
+
               span {
                 @include typography.en-regular;
+
+                @include mq.sm {
+                  display: none;
+                }
               }
 
               .h3 {
@@ -187,13 +293,31 @@
                 justify-content: center;
                 line-height: 1;
 
+                @include mq.sm {
+                  gap: 10px;
+                }
+
                 h3 {
                   font-size: 50px;
                   font-weight: 400;
+
+                  @include mq.sm {
+                    font-size: 20px;
+                  }
                 }
 
                 span {
                   font-size: 30px;
+
+                  @include mq.sm {
+                    font-size: 13px;
+                  }
+                }
+              }
+
+              p {
+                @include mq.sm {
+                  font-size: 13px;
                 }
               }
 
@@ -204,6 +328,13 @@
 
             .img {
               width: 51%;
+              position: relative;
+
+              @include mq.sm {
+                width: 100%;
+                aspect-ratio: 267 / 278;
+                overflow: hidden;
+              }
 
               img {
                 width: 100%;
@@ -211,6 +342,13 @@
                 height: 100%;
                 max-height: 100%;
                 object-fit: contain;
+
+                @include mq.sm {
+                  object-fit: cover;
+                  object-position: top;
+                  transform-origin: top;
+                  scale: 1.2;
+                }
               }
             }
           }

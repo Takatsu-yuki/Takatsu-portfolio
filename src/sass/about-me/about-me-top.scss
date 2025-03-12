@@ -31,7 +31,7 @@
       gap: 60px;
     }
     @include mq.sm {
-      gap: 20px;
+      gap: 30px;
     }
 
     .text {
@@ -44,7 +44,7 @@
         width: 100%;
       }
       @include mq.sm {
-        padding: 40px 0 0 56px;
+        padding: 50px 0 0 0px;
       }
 
       .circle {
@@ -65,6 +65,11 @@
         position: relative;
         z-index: 1;
         margin-bottom: 40px;
+
+        @include mq.sm {
+          padding-left: 30px;
+          margin-bottom: 30px;
+        }
 
         h1 {
           @include typography.en-regular;
