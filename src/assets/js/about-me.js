@@ -1,5 +1,22 @@
 "use strict";
 
+//biography
+const pagination = document.querySelectorAll("#pagination li");
+const slideItems = document.querySelectorAll("#slide-items li");
+
+pagination.forEach((el, index) => {
+  el.addEventListener("click", () => {
+    pagination.forEach((item) => {
+      item.classList.remove("active");
+    });
+    slideItems.forEach((item) => {
+      item.classList.remove("active");
+    });
+    el.classList.add("active");
+    slideItems[index].classList.add("active");
+  });
+});
+
 //slide-1 アコーディオンパネル
 const initializeDetailsAccordion = (details) => {
   const summary = details.querySelector("summary");
@@ -109,7 +126,7 @@ const dots = document.querySelectorAll(".dots span");
 //.circleの設定
 mm.add("(min-width: 771px)", () => {
   gsap.to("#yuki .circle", 0.5, {
-    opacity: 0.5,
+    autoAlpha: 0.3,
     scrollTrigger: {
       trigger: "#yuki .right",
       start: "298px center",

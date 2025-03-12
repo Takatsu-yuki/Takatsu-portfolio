@@ -1,5 +1,5 @@
-mixin pagination(num, span)
-  li
+mixin pagination(num, span, className)
+  li(class=className)
     .border
       .img
         img(src=`${pathToImgAboutMe}img-pagination-${num}.png`, alt=`pagination-${num}`)
@@ -11,13 +11,13 @@ section#biography.biography
       h2 Biography
       p デザイナーを目指すまでの旅の道のり
     .timeline
-      ul.pagination
-        +pagination(1, "幼少期")
+      ul#pagination.pagination
+        +pagination(1, "幼少期", "active")
         +pagination(2, "大学生")
         +pagination(3, "社会人")
         +pagination(4, "現在")
-      ul.content
-        li
+      ul#slide-items.slide-items
+        li.active
           .border
             .text
               span Childhood
