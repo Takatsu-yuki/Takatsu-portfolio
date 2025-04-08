@@ -226,11 +226,6 @@
             height: vw.sm(141);
           }
 
-          &:hover {
-            transform: rotate(60deg);
-            transform-origin: center;
-          }
-
           &::before {
             display: block;
             width: 100%;

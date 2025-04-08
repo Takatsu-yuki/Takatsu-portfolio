@@ -15,7 +15,7 @@
 
   @include mq.sm {
     padding-inline: 24px;
-    margin-bottom: 60px;
+    margin-bottom: 0px;
   }
 
   .inner {
@@ -207,6 +207,7 @@
           opacity: 0;
           transition: 1s ease.$custom1;
           transform: translate(calc(-50% - 20px), -50%);
+
           &.active {
             visibility: visible;
             opacity: 1;
@@ -310,8 +311,8 @@
                   font-size: 30px;
 
                   @include mq.sm {
-                    font-size: 13px;
                     display: block;
+                    font-size: 13px;
                   }
                 }
               }

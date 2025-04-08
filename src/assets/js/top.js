@@ -1,5 +1,23 @@
 "use strict";
 
+//fv
+const circle = document.querySelector("#fv .circle");
+console.log(circle);
+
+//ホバーの回転
+circle.addEventListener("mouseover", () => {
+  circle.animate(
+    {
+      transform: ["rotate(0)", "rotate(60deg)"],
+    },
+    {
+      duration: 1000,
+      easing: "ease",
+      fill: "forwards",
+    }
+  );
+});
+
 // gallery
 const galleryItems = document.querySelectorAll("#gallery-items > div > figure");
 
