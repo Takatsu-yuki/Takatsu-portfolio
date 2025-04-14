@@ -22,6 +22,7 @@ block vars
   var pathToCSS = pathToAssets + 'css/';
   var pathToLibs = pathToAssets + 'libs/';
   var pathToSVG = pathToAssets + 'images/svg/';
+  var pathToCommon = pathToAssets + 'images/common/';
   var pathToImgAboutMe = pathToAssets + 'images/about-me/';
   var pathToImgWorks = pathToAssets + 'images/works/';
   var pathToImgLG = pathToAssets + 'images/lg/';
@@ -49,6 +50,9 @@ html(lang="ja", xmlns:og="http://ogp.me/ns#")
     meta(property="og:image:width", content="1200")
     meta(property="og:image:height", content="630")
     meta(property="og:url", content="")
+    link(rel="icon", href=`${pathToCommon}icon.ico`, sizes="16x16")
+    link(rel="icon", href=`${pathToCommon}icon.ico`, sizes="32x32")
+    link(rel="apple-touch-icon", href=`${pathToCommon}icon.ico`, sizes="180x180")
     title= title
   body(class=bodyClasses)
     include ../_include/header

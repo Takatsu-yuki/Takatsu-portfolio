@@ -77,3 +77,8 @@ $-responsive-threshold2: 1200px;
     @include no-lg;
   }
 }
+@mixin has-hover {
+  @media (hover: hover) {
+    @content;
+  }
+}

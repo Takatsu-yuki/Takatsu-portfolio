@@ -1,12 +1,12 @@
 "use strict";
 
-//works-list
-const worksLists = document.querySelectorAll("#works-cont li");
+//フェードイン
+const fadeIn = document.querySelectorAll(".fade-in");
 
 const worksListOptions = {
   root: null,
   rootMargin: "0px",
-  threshold: 0.8,
+  threshold: 0.5,
 };
 
 const worksListObserver = new IntersectionObserver((entries) => {
@@ -17,6 +17,11 @@ const worksListObserver = new IntersectionObserver((entries) => {
   });
 }, worksListOptions);
 
-worksLists.forEach((list) => {
+fadeIn.forEach((list) => {
   worksListObserver.observe(list);
+});
+
+//　視差効果
+var rellax = new Rellax(".rellax", {
+  // center: true,
 });

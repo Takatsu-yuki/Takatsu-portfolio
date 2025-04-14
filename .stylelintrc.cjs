@@ -8,6 +8,7 @@ module.exports = {
     "no-descending-specificity": null,
     "no-empty-source": null,
     "block-no-empty": null,
+    "property-no-unknown": null,
     "declaration-empty-line-before": ["never"],
     "declaration-block-no-redundant-longhand-properties": null,
     "scss/at-rule-no-unknown": true,
@@ -25,5 +26,6 @@ module.exports = {
     "scss/double-slash-comment-whitespace-inside": null,
     "scss/double-slash-comment-empty-line-before": null,
     "scss/comment-no-empty": null,
+    "scss/at-rule-no-unknown": null,
   },
 };

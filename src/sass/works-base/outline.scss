@@ -1,0 +1,339 @@
+@use "sass:meta";
+@use "sass:math";
+@use "../_include/color";
+@use "../_include/decoration";
+@use "../_include/ease";
+@use "../_include/media_query" as mq;
+@use "../_include/path";
+@use "../_include/typography";
+@use "../_include/vw";
+@use "../_include/geom";
+
+.outline {
+  margin-bottom: 200px;
+
+  @include mq.sm {
+    margin-bottom: 60px;
+  }
+
+  .description {
+    box-sizing: border-box;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 108px;
+    display: flex;
+    justify-content: space-between;
+    gap: 11%;
+    margin-bottom: 200px;
+
+    @include mq.md {
+      flex-direction: column;
+      gap: 60px;
+    }
+
+    @include mq.sm {
+      flex-direction: column;
+      gap: 30px;
+      padding: 0 24px;
+      margin-bottom: 60px;
+    }
+
+    .head {
+      h2 {
+        @include typography.en-regular;
+        font-size: 92px;
+        line-height: 1;
+        margin: 0 0 15px -5px;
+
+        @include mq.sm {
+          font-size: 45px;
+          margin: 0 0 0 -2px;
+        }
+      }
+      span {
+        @include typography.zen-regular;
+        font-size: 16px;
+        @include mq.sm {
+          font-size: 12px;
+        }
+      }
+    }
+
+    .text {
+      @include typography.zen-regular;
+      font-size: 16px;
+      line-height: 2;
+      margin-top: 155px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+
+      @include mq.md-sm {
+        margin-top: 0;
+      }
+      @include mq.sm {
+        font-size: 13px;
+      }
+    }
+  }
+
+  .line {
+    box-sizing: border-box;
+    width: 85%;
+    height: fit-content;
+    border-radius: 0 60px 0 0;
+    border: solid var(--color-gold) 2px;
+    border-left: none;
+    padding: 10px 10px 10px 0;
+    margin-bottom: 200px;
+
+    @include mq.sm {
+      width: 93%;
+      border-radius: 0 50px 0 0;
+      margin-bottom: 60px;
+    }
+
+    .img {
+      width: 100%;
+      border-radius: 0 50px 0 0;
+      overflow: hidden;
+      border: solid var(--color-gold) 1px;
+      border-left: none;
+
+      @include mq.sm {
+        height: 172px;
+        border-radius: 0 40px 0 0;
+      }
+
+      img {
+        width: 100%;
+        max-width: 100%;
+        height: 480px;
+        object-fit: cover;
+        vertical-align: top;
+
+        @include mq.sm {
+          height: 172px;
+        }
+      }
+    }
+  }
+
+  .information {
+    @include typography.zen-regular;
+    padding: 0 108px;
+    max-width: 816px;
+    margin: 0 auto 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    line-height: 2;
+
+    @include mq.sm {
+      padding: 0 24px;
+      margin: 0 auto 60px;
+      gap: 20px;
+    }
+
+    .none {
+      display: none;
+    }
+
+    li {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: 1s ease;
+
+      &.active {
+        h3 {
+          opacity: 1;
+          translate: 0 0;
+        }
+
+        .hr {
+          scale: 1;
+        }
+
+        p {
+          opacity: 1;
+          translate: 0 0;
+        }
+      }
+      h3 {
+        color: var(--color-gold);
+        font-size: 20px;
+        text-align: center;
+        opacity: 0;
+        translate: 0 20px;
+        transition: 1s ease;
+
+        @include mq.sm {
+          font-size: 16px;
+        }
+      }
+
+      .hr {
+        transition: 1s ease.$custom1;
+        transform-origin: center;
+        scale: 0;
+      }
+
+      p {
+        font-size: 16px;
+        opacity: 0;
+        translate: 0 20px;
+        transition: 1s ease;
+
+        @include mq.sm {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+
+  .comp {
+    margin-bottom: 200px;
+    box-sizing: border-box;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding-inline: 108px;
+    display: flex;
+    justify-content: space-between;
+
+    @include mq.sm {
+      margin-inline: 60px;
+      padding: 0 24px;
+      margin: 0;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+
+    img {
+      vertical-align: top;
+      border: solid 1px var(--color-gold);
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .pc {
+      width: 57%;
+
+      @include mq.sm {
+        width: 70%;
+      }
+    }
+
+    .sp {
+      width: 34%;
+
+      @include mq.sm {
+        width: 55%;
+      }
+    }
+
+    .pc-only {
+      width: 56%;
+      margin: 0 auto;
+
+      @include mq.sm {
+        width: 70%;
+      }
+    }
+  }
+
+  .comp-bunner {
+    margin-bottom: 200px;
+    box-sizing: border-box;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding-inline: 108px;
+
+    @include mq.sm {
+      margin-inline: 60px;
+      padding: 0 24px;
+      margin: 0;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+
+    ol {
+      display: flex;
+      justify-content: space-between;
+      list-style: none;
+
+      @include mq.sm {
+        margin-inline: 60px;
+        margin: 0;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+      }
+
+      li {
+        width: 32%;
+
+        @include mq.sm {
+          width: 70%;
+        }
+
+        span {
+          @include typography.en-regular;
+          color: var(--color-gold);
+          border-top: solid 1px var(--color-gold);
+          line-height: 2;
+          padding-top: 3px;
+        }
+
+        .img {
+          border: solid 1px var(--color-gold);
+
+          img {
+            width: 100%;
+            max-width: 100%;
+            height: 100%;
+            max-height: 100%;
+            vertical-align: top;
+          }
+        }
+      }
+    }
+  }
+  .comp-card {
+    margin-bottom: 200px;
+    box-sizing: border-box;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding-inline: 108px;
+    display: flex;
+    justify-content: space-between;
+
+    @include mq.sm {
+      margin-inline: 60px;
+      padding: 0 24px;
+      margin: 0;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .img {
+      border: solid 1px var(--color-gold);
+      width: 49%;
+
+      @include mq.sm {
+        width: 70%;
+      }
+
+      img {
+        width: 100%;
+        max-width: 100%;
+        height: 100%;
+        max-height: 100%;
+        vertical-align: top;
+      }
+    }
+  }
+}

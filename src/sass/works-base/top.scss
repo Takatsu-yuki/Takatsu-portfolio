@@ -1,0 +1,136 @@
+@use "sass:meta";
+@use "sass:math";
+@use "../_include/color";
+@use "../_include/decoration";
+@use "../_include/ease";
+@use "../_include/media_query" as mq;
+@use "../_include/path";
+@use "../_include/typography";
+@use "../_include/vw";
+@use "../_include/geom";
+
+.top {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100vh;
+  margin-bottom: 200px;
+  color: var(--color-white);
+
+  @include mq.sm {
+    margin-bottom: 60px;
+  }
+
+  .inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    .bg-img {
+      @include geom.abs;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+
+      video {
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        height: 100%;
+        max-height: 100%;
+        object-fit: cover;
+        object-position: top;
+        z-index: 0;
+      }
+
+      img {
+        width: 100%;
+        max-width: 100%;
+        height: 100%;
+        max-height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: rgba($color: #000, $alpha: 0.5);
+        z-index: 1;
+      }
+    }
+
+    .text {
+      @include typography.zen-regular;
+      box-sizing: border-box;
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 100px 108px;
+
+      @include mq.sm {
+        padding: 60px 24px;
+      }
+
+      .head {
+        font-size: 16px;
+
+        @include mq.sm {
+          font-size: 13px;
+        }
+
+        & > span {
+          margin-bottom: 10px;
+        }
+
+        h1 {
+          font-size: 50px;
+          margin-bottom: 5px;
+          font-weight: 400;
+
+          @include mq.sm {
+            font-size: 20px;
+            margin-bottom: 20px;
+          }
+
+          .no-lg {
+            display: none;
+
+            @include mq.sm {
+              display: block;
+            }
+          }
+        }
+
+        .link {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          color: var(--color-white);
+          text-decoration: none;
+          width: fit-content;
+          line-height: 2;
+          figure {
+            @include path.bg-img("svg/icon-link.svg");
+            @include geom.sq(20px);
+          }
+        }
+
+        p {
+          line-height: 2;
+        }
+      }
+
+      .bottom {
+        p {
+          line-height: 2;
+        }
+      }
+    }
+  }
+}

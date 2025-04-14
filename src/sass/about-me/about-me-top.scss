@@ -11,11 +11,11 @@
 
 .about-me-top {
   padding-inline: 108px;
-  margin-bottom: 200px;
+  margin: 100px 0 200px;
 
   @include mq.sm {
     padding-inline: 24px;
-    margin-bottom: 60px;
+    margin: 62px 0 60px;
   }
 
   .inner {
@@ -118,7 +118,7 @@
       box-sizing: border-box;
       width: 35%;
       aspect-ratio: 428 / 717;
-      padding: 10px;
+      padding: 5px;
       border: 3px var(--color-gold) solid;
       border-radius: 0 60px 0 0;
 
@@ -137,11 +137,11 @@
         height: 100%;
         max-height: 100%;
         border: 1px var(--color-gold) solid;
-        border-radius: 0 50px 0 0;
+        border-radius: 0 55px 0 0;
 
         @include path.bg-img("/about-me/img-about-me-top.png", cover);
         @include mq.sm {
-          border-radius: 0 30px 0 0;
+          border-radius: 0 35px 0 0;
         }
       }
     }

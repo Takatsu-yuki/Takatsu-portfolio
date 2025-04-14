@@ -16,6 +16,16 @@
   padding-inline: 108px;
   margin-bottom: 200px;
 
+  @include mq.md-sm {
+    //scrollTrigger.chara .chara-md に使用
+    .opacity-02 {
+      opacity: 0.2;
+    }
+    .opacity-0 {
+      opacity: 0;
+    }
+  }
+
   @include mq.sm {
     padding-inline: 0;
     margin-bottom: 200px;
@@ -33,7 +43,7 @@
 
     .left {
       position: sticky;
-      top: calc((100vh - 600px) / 2);
+      top: calc((100dvh - 600px) / 2);
       display: flex;
       flex-grow: 1;
       height: 600px;
@@ -229,16 +239,22 @@
           width: 100%;
           margin-bottom: 20px;
         }
-
-        .chara {
-          @include path.bg-img("/top/img-aboutme-character.png");
+        .chara-cont {
           z-index: 1;
           box-sizing: border-box;
           flex-shrink: 0;
           width: 370px;
           height: 600px;
           margin-right: 30px;
-          background-position: center;
+
+          [class^="chara"] {
+            //修正する
+            @include geom.abs;
+            width: 100%;
+            height: 100%;
+            background-position: center;
+            transition: 0.5s ease;
+          }
 
           @include mq.md {
             display: none;
@@ -248,14 +264,58 @@
             height: 440px;
             opacity: 1;
           }
-          // &::before {
-          //   @include geom.abs(0, 0);
-          //   z-index: -1;
-          //   width: 100%;
-          //   height: 100%;
-          //   content: "";
+          .chara {
+            @include path.bg-img("/top/img-aboutme-character.webp");
+            background-position: center;
+            transition: 0.3s ease;
+          }
+
+          .color {
+            @include geom.abs;
+            width: 100%;
+            height: 100%;
+            background-color: #78b6e5;
+            -webkit-mask-image: url(../images//about-me/img-aboutme-character-1.webp);
+            mask-image: url(../images//about-me/img-aboutme-character-1.webp);
+            mask-size: contain;
+            mask-repeat: no-repeat;
+            mask-position: center;
+            transition: 0.3s;
+            opacity: 0;
+          }
+          .blue {
+            opacity: 0.3;
+          }
+          .green {
+            background-color: #bbded7;
+            opacity: 0.3;
+          }
+          .pink {
+            background-color: #eeccd1;
+            opacity: 0.3;
+          }
+
+          // .chara-1 {
+          //   opacity: 0;
           //   background-color: var(--color-blue);
+          //   -webkit-mask-image: url(../images//about-me/img-aboutme-character-1.png);
+          //   mask-image: url(../images//about-me/img-aboutme-character-1.png);
+          //   mask-size: contain;
+          //   mask-repeat: no-repeat;
+          //   mask-position: center;
           // }
+          // .chara-2 {
+          //   @include path.bg-img("/about-me/img-aboutme-character-2.webp");
+          //   opacity: 0;
+          // }
+          // .chara-3 {
+          //   @include path.bg-img("/about-me/img-aboutme-character-3.webp");
+          //   opacity: 0;
+          // }
+
+          .active {
+            opacity: 1;
+          }
         }
 
         [class^="bg-en"] {
@@ -313,7 +373,7 @@
 
       .sticky-content {
         position: sticky;
-        top: calc((100vh - 600px) / 2);
+        top: calc((100dvh - 600px) / 2);
         width: 100%;
         height: 600px;
 
@@ -322,16 +382,40 @@
           height: auto;
         }
 
-        .chara-md {
-          @include mq.md {
+        .chara-cont-md {
+          @include geom.abs;
+          width: 100%;
+          height: 100%;
+
+          .chara-md {
+            @include mq.md {
+              @include path.bg-img("/top/img-aboutme-character.webp");
+              width: 100%;
+              height: 100%;
+              content: "";
+              background-position: center;
+              opacity: 1;
+              transition: 0.3s ease;
+            }
+          }
+          .color-md {
             @include geom.abs;
-            @include path.bg-img("/top/img-aboutme-character.png");
             width: 100%;
             height: 100%;
-            content: "";
-            background-position: center;
-            opacity: 1;
-            transition: 0.1s ease;
+            background-color: #78b6e5;
+            -webkit-mask-image: url(../images//about-me/img-aboutme-character-1.webp);
+            mask-image: url(../images//about-me/img-aboutme-character-1.webp);
+            mask-size: contain;
+            mask-repeat: no-repeat;
+            mask-position: center;
+            transition: 0.3s;
+            opacity: 0;
+          }
+          .green {
+            background-color: #bbded7;
+          }
+          .pink {
+            background-color: #eeccd1;
           }
         }
 
@@ -555,7 +639,7 @@
                 }
 
                 .item3 {
-                  @include path.bg-img("svg/icon-illustrator.svg");
+                  @include path.bg-img("svg/icon-ai.svg");
                 }
 
                 .item4 {

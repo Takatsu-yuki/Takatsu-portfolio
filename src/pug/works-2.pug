@@ -1,0 +1,16 @@
+extends _template/_base
+
+block vars
+  - lev1ID = "works";
+  - lev = 2;
+
+block links
+  link(href=`${pathToCSS}works-base.css${hash}`, rel="stylesheet", type="text/css")
+
+block main
+  include works-num/works-2
+
+block scripts
+  script(src="https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js")
+  script(src=`${pathToJS}common.js`)
+  script(src=`${pathToJS}works-list.js`)

@@ -1,3 +1,7 @@
+//- #loading
+//-   .inner
+//-     #loading-item
+
 section#fv.fv
   .inner
     .bg
@@ -9,7 +13,12 @@ section#fv.fv
         figure.bg4
     .content
       .head
-        h1 Welcome to<br class="no-md"> My portfolio site
-        p Takatsu Yuki portfolio site
+        h1
+          span.clip
+            span.clip-item Welcome to&nbsp;<br class="no-md">
+          span.clip
+            span.clip-item My portfolio site
+        .clip
+          p.clip-item Takatsu Yuki portfolio site
       .character
         a.circle(href="/works-list/")

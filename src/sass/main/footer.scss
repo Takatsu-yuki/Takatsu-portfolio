@@ -18,16 +18,13 @@
   }
 
   .bg {
+    @include path.bg-img("common/deco-footer-bg.png");
     position: absolute;
     top: 0;
     left: 0;
     z-index: -1;
     width: 100%;
-    height: 100%;
-
-    svg {
-      width: 100%;
-    }
+    aspect-ratio: 1440 / 253;
   }
 
   .inner {
@@ -56,9 +53,10 @@
       gap: 40px;
       align-items: center;
       justify-content: center;
-      margin-bottom: 60px;
+      margin: 0 auto 60px;
       color: var(--color-gold);
       text-decoration: none;
+      width: fit-content;
 
       @include mq.sm {
         gap: 13px;
@@ -72,11 +70,52 @@
         }
       }
 
-      h2 {
+      .split-text {
         @include typography.en-regular;
         margin-top: -15px;
         font-size: 100px;
         line-height: 1;
+
+        .text-wrap {
+          display: block;
+          position: relative;
+          display: flex;
+          align-items: center;
+          overflow: hidden;
+
+          .before,
+          .after {
+            display: flex;
+            span {
+              transition: transform 0.5s ease.$custom1;
+              display: block;
+            }
+          }
+          .before {
+            span {
+              transform: translate(0, 0);
+            }
+
+            span.hovered {
+              transform: translate(0, -100%);
+            }
+          }
+
+          .after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            span {
+              transform: translate(0, 100%);
+            }
+            span.hovered {
+              transform: translate(0, 0);
+            }
+          }
+        }
 
         @include mq.sm {
           margin-top: -8px;
@@ -106,8 +145,26 @@
           }
 
           li {
+            position: relative;
+
+            &::before {
+              position: absolute;
+              right: 0;
+              bottom: -5px;
+              width: 0%;
+              height: 1px;
+              content: "";
+              background-color: var(--color-gold);
+              transition: 0.8s ease.$custom1;
+            }
+
+            &:has(a:hover)::before {
+              left: 0;
+              width: 100%;
+            }
             a {
               @include typography.zen-regular;
+              display: block;
               font-size: 20px;
               color: var(--color-gold);
               text-decoration: none;
@@ -148,6 +205,7 @@
           }
 
           svg {
+            vertical-align: top;
             path {
               fill: var(--color-gold);
             }

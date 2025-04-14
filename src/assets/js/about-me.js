@@ -103,27 +103,9 @@ const subheads = document.querySelectorAll('[class^="subhead"]');
 const bgEn = document.querySelectorAll("#yuki [class^='bg-en']");
 const slide3Items = document.querySelectorAll("#yuki [class^='item-']");
 const dots = document.querySelectorAll(".dots span");
+const colorClass = ["blue", "green", "pink"];
 
-// const titleEl = document.querySelector("#h1"),
-//   titleTexts = titleEl.textContent.split("");
-
-// titleEl.textContent = "";
-// let outputTexts = "";
-// titleTexts.forEach((text) => {
-//   outputTexts += text === " " ? " " : `<span>${text}</span>`;
-// });
-// titleEl.innerHTML = outputTexts;
-
-// const target = "#h1 span";
-
-// document.querySelectorAll(target).forEach((el) => {
-//   gsap.set(el, {
-//     opacity: 0,
-//     rotation: 90,
-//   });
-// });
-
-//.circleの設定
+// .circleの設定
 mm.add("(min-width: 771px)", () => {
   gsap.to("#yuki .circle", 0.5, {
     autoAlpha: 0.3,
@@ -147,8 +129,8 @@ mm.add("(min-width: 771px)", () => {
   });
 });
 
-//.slideの設定
-//pcサイズ
+// .slideの設定
+// pcサイズ
 mm.add("(min-width: 1201px)", () => {
   gsap.to("#yuki .slide-1", {
     scrollTrigger: {
@@ -165,32 +147,94 @@ mm.add("(min-width: 1201px)", () => {
       toggleClass: { targets: "#yuki .slide-2", className: "active" },
     },
   });
-  gsap.to("#yuki .item-1", {
+  gsap.to("#yuki .chara", {
+    opacity: 0,
+    duration: 0.1,
+
     scrollTrigger: {
       trigger: "#yuki .right",
       start: "40% center",
       end: "60% center",
-      toggleClass: { targets: "#yuki .item-1", className: "active" },
+      // markers: true,
+      toggleActions: "play none none reverse",
+      toggleClass: {
+        targets: ["#yuki .item-1"],
+        className: "active",
+      },
     },
   });
-  gsap.to("#yuki .item-2", {
+  gsap.to("#yuki .color", {
+    opacity: 1,
+    duration: 0.1,
+
     scrollTrigger: {
+      // markers: true,
+      trigger: "#yuki .right",
+      start: "40% center",
+      end: "60% center",
+      toggleActions: "play none none reverse",
+    },
+  });
+  gsap.to("#yuki .color", {
+    duration: 0.3,
+    scrollTrigger: {
+      // markers: true,
       trigger: "#yuki .right",
       start: "60% center",
       end: "80% center",
-      toggleClass: { targets: "#yuki .item-2", className: "active" },
+      toggleActions: "play none none reverse",
+      toggleClass: {
+        targets: ["#yuki .item-2"],
+        className: "active",
+      },
     },
   });
-  gsap.to("#yuki .item-3", {
+  gsap.to("#yuki .color", {
+    duration: 0.3,
     scrollTrigger: {
+      // markers: true,
+      trigger: "#yuki .right",
+      start: "60% center",
+      end: "80% center",
+      toggleActions: "play none none reverse",
+      toggleClass: {
+        targets: ["#yuki .color"],
+        className: "green",
+      },
+    },
+  });
+
+  gsap.to("#yuki .color", {
+    duration: 0.3,
+    scrollTrigger: {
+      // markers: true,
       trigger: "#yuki .right",
       start: "80% center",
-      toggleClass: { targets: "#yuki .item-3", className: "active" },
+      toggleActions: "play none none reverse",
+      toggleClass: {
+        targets: ["#yuki .item-3"],
+        className: "active",
+      },
+    },
+  });
+  gsap.to("#yuki .color", {
+    duration: 0.3,
+    scrollTrigger: {
+      // markers: true,
+      trigger: "#yuki .right",
+      start: "80% center",
+      toggleActions: "play none none reverse",
+      toggleClass: {
+        targets: ["#yuki .color"],
+        className: "pink",
+      },
     },
   });
 });
-//tabletサイズ
+// tabletサイズ
 mm.add("(min-width:771px) and (max-width: 1200px)", () => {
+  const slide1 = document.querySelector("#yuki .slide-1");
+  slide1.classList.remove("active");
   gsap.to("#yuki .chara-md", {
     opacity: 0.2,
     scrollTrigger: {
@@ -216,8 +260,21 @@ mm.add("(min-width:771px) and (max-width: 1200px)", () => {
       toggleClass: { targets: "#yuki .slide-2", className: "active" },
     },
   });
-  gsap.to("#yuki .item-1", {
+  gsap.to("#yuki .chara-md", {
+    opacity: 0,
+    duration: 0.3,
     scrollTrigger: {
+      toggleActions: "play none none reverse",
+      trigger: "#yuki .right",
+      start: "40% center",
+      end: "60% center",
+    },
+  });
+  gsap.to("#yuki .color-md", {
+    opacity: 0.3,
+    duration: 0.3,
+    scrollTrigger: {
+      toggleActions: "play none none reverse",
       trigger: "#yuki .right",
       start: "40% center",
       end: "60% center",
@@ -232,6 +289,14 @@ mm.add("(min-width:771px) and (max-width: 1200px)", () => {
       toggleClass: { targets: "#yuki .item-2", className: "active" },
     },
   });
+  gsap.to("#yuki .color-md", {
+    scrollTrigger: {
+      trigger: "#yuki .right",
+      start: "60% center",
+      end: "80% center",
+      toggleClass: { targets: "#yuki .color-md", className: "green" },
+    },
+  });
   gsap.to("#yuki .item-3", {
     scrollTrigger: {
       trigger: "#yuki .right",
@@ -239,23 +304,36 @@ mm.add("(min-width:771px) and (max-width: 1200px)", () => {
       toggleClass: { targets: "#yuki .item-3", className: "active" },
     },
   });
+  gsap.to("#yuki .color-md", {
+    scrollTrigger: {
+      trigger: "#yuki .right",
+      start: "80% center",
+      toggleClass: { targets: "#yuki .color-md", className: "pink" },
+    },
+  });
 });
-//spサイズ
+// spサイズ
 mm.add("(max-width: 770px)", () => {
   gsap.to("#yuki .chara", {
-    opacity: 0.2,
     scrollTrigger: {
       trigger: "#yuki .right",
       start: "top bottom",
       end: "bottom top",
-      toggleActions: "play none none reverse",
+      toggleClass: { targets: ".chara", className: "opacity-02" },
       // markers: true,
+    },
+  });
+  gsap.to("#yuki .chara", {
+    scrollTrigger: {
+      trigger: "#yuki .slide-3",
+      start: "top +=172px",
+      toggleClass: { targets: ".chara", className: "opacity-0" },
     },
   });
 });
 
-//.subheadの設定
-//tablet以上
+// .subheadの設定
+// tablet以上
 mm.add("(min-width: 771px)", () => {
   gsap.to("#yuki .subhead-1", {
     scrollTrigger: {
@@ -280,7 +358,7 @@ mm.add("(min-width: 771px)", () => {
     },
   });
 });
-//spサイズ
+// spサイズ
 mm.add("(max-width: 770px)", () => {
   gsap.to("#yuki .subhead-1", {
     scrollTrigger: {
@@ -346,7 +424,7 @@ mm.add("(max-width: 770px)", () => {
   });
 });
 
-//.subheadをクリックした時の動き
+// .subheadをクリックした時の動き
 mm.add("(min-width: 771px)", () => {
   subheads.forEach((subhead, index) => {
     subhead.addEventListener("click", function () {
@@ -358,7 +436,7 @@ mm.add("(min-width: 771px)", () => {
   });
 });
 
-//charaの動き
+// spサイズcharaの動き
 mm.add("(max-width: 770px)", () => {
   gsap.to("#yuki .bg-cont", {
     scrollTrigger: {
@@ -375,12 +453,31 @@ mm.add("(max-width: 770px)", () => {
     gsap.to(bg, {
       alpha: 1,
       duration: 0.1,
+      // marker: true,
       scrollTrigger: {
         trigger: slide3Items[index],
         start: "top +=172px",
-        end: "bottom +=172px",
+        ...(index !== 3 && { end: "bottom +=172px" }),
         toggleActions: "play reverse play reverse",
+        toggleClass: { targets: "#yuki .color", className: colorClass[index] },
       },
     });
   });
+});
+
+// リロードボタンを押したらページ上部に戻るよう設定
+window.addEventListener("load", () => {
+  const perfEntries = performance.getEntriesByType("navigation");
+  if (perfEntries.length > 0 && perfEntries[0].type === "reload") {
+    // 上へスクロール
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
+    // スクロール完了を監視してからScrollTrigger.refresh()
+    const checkIfAtTop = setInterval(() => {
+      if (window.scrollY === 0) {
+        clearInterval(checkIfAtTop);
+        ScrollTrigger.refresh();
+      }
+    }, 50);
+  }
 });

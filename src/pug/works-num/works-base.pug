@@ -1,0 +1,79 @@
+mixin top(bg, num, span, h1, link, type, date, tool,)
+  section.top
+    .inner
+      .bg-img
+        if bg === "video"
+          video.rellax(autoplay, loop, muted, playsinline, data-rellax-speed="-8")
+            source(src=`${pathToImgWorks}video-works-${num}-1-lg.mp4`, type="video/mp4", media="(min-width: 770px)")
+            source(src=`${pathToImgWorks}video-works-${num}-1-sm.mp4`, type="video/mp4")
+        if bg ==="img"
+          picture
+            source(srcset=`${pathToImgWorks}img-works-${num}-1-lg.jpg`, type="image/jpeg", media="(min-width: 770px)")
+            source(srcset=`${pathToImgWorks}img-works-${num}-1-sm.jpg`, type="image/jpeg")
+            img.rellax(src=`${pathToImgWorks}img-works-${num}-1-lg.jpg`, data-rellax-speed="-8")
+        else
+          img.rellax(src=`${pathToImgWorks}img-works-${num}-1-lg.jpg`, data-rellax-speed="-8")
+      .text
+        .head
+          span #{ span }
+          h1 !{ h1 }
+          a.link(href=`${link}`, target="_blank", rel="noopener noreferrer")
+            if type === "site"
+              span visit site
+              figure
+            if type === "figma"
+              span Figma date
+              figure
+            else
+          block
+        .bottom
+          p date：#{ date }
+          p tool：#{ tool }
+
+mixin outline(outline, charge, num, problem, solution, target, information, design ,problemClass, informationClass)
+  section.outline
+    .description
+      .head
+        h2 Outline
+        span 制作概要
+      .text
+        p !{ outline }
+        p 担当範囲：#{ charge }
+    .line
+      .img
+        img(src=`${pathToImgWorks}img-works-${num}-2.jpg`)
+    ul.information
+      li.fade-in(class=problemClass)
+        h3 課題
+        .hr
+        p !{ problem }
+      li.fade-in
+        h3 目的
+        .hr
+        p !{ solution }
+      li.fade-in
+        h3 ターゲット
+        .hr
+        p !{ target }
+      li.fade-in(class=informationClass)
+        h3 情報設計
+        .hr
+        p !{ information }
+      li.fade-in
+        h3 デザイン
+        .hr
+        p !{ design }
+    block
+
+mixin btns(num, total = 8)
+  .btns
+    - const prev = num === 1 ? total : num - 1;
+    - const next = num === total ? 1 : num + 1;
+
+    a.btn(href=`/works-${prev}/`) 
+      figure
+      span 前へ
+    a.back(href="/works-list/") 作品一覧へ戻る
+    a.btn(href=`/works-${next}/`)
+      span 次へ
+      figure

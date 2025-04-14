@@ -20,9 +20,16 @@ export default makeConfig({
     data: [],
     files: {
       "index.html": "top.pug",
-      "sub.html": "sub.pug",
       "works-list/index.html": "works-list.pug",
       "about-me/index.html": "about-me.pug",
+      "works-1/index.html": "works-1.pug",
+      "works-2/index.html": "works-2.pug",
+      "works-3/index.html": "works-3.pug",
+      "works-4/index.html": "works-4.pug",
+      "works-5/index.html": "works-5.pug",
+      "works-6/index.html": "works-6.pug",
+      "works-7/index.html": "works-7.pug",
+      "works-8/index.html": "works-8.pug",
     },
   },
   sass: {
@@ -33,6 +40,7 @@ export default makeConfig({
       "top.css": "top.scss",
       "works-list.css": "works-list.scss",
       "about-me.css": "about-me.scss",
+      "works-base.css": "works-base.scss",
     },
   },
   // ts: {

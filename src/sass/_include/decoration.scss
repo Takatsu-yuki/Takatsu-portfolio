@@ -46,40 +46,38 @@ body {
     }
   }
 
-  span {
-    position: relative;
+  p {
     display: block;
     transition: 0.5s ease.$custom1;
-
-    &::before {
-      position: absolute;
-      top: 50%;
-      left: 77px;
-      width: 20px;
-      height: 1px;
-      content: "";
-      background-color: var(--color-black);
-      transition: 0.5s ease.$custom1;
-      transform: translateY(-50%);
-      transform-origin: left;
-    }
   }
 
-  &:hover {
-    svg {
-      transform: rotate(60deg);
+  span {
+    display: block;
+    width: 20px;
+    height: 1px;
+    background-color: var(--color-black);
+    transition: 0.5s ease.$custom1;
+    transform: translateY(-50%);
+    transform-origin: left;
+  }
 
-      path {
-        fill: var(--color-gold);
+  @media (hover: hover) {
+    &:hover {
+      svg {
+        transform: rotate(60deg);
+
+        path {
+          fill: var(--color-gold);
+        }
       }
-    }
 
-    span {
-      color: var(--color-gold);
+      p {
+        color: var(--color-gold);
+      }
 
-      &::before {
-        width: 50px;
+      span {
         background-color: var(--color-gold);
+        transform: scale(2, 1);
       }
     }
   }
@@ -93,19 +91,19 @@ body {
 
   &::before {
     @include path.bg-img("common/deco-hr.png");
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    @include geom.abs(50%, 50%);
     width: 26px;
     height: 10px;
     content: "";
-    transform: translate(-50%, -50%);
+    translate: (-50% -55%);
   }
 }
 
-@view-transition {
-  navigation: auto;
-}
+/* stylelint-disable scss/at-rule-no-unknown, property-no-unknown */
+// @view-transition {
+//   navigation: auto;
+// }
+/* stylelint-enable */
 
 @keyframes rotation {
   0% {
