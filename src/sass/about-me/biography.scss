@@ -69,27 +69,29 @@
       .pagination {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
         gap: 20px;
+        justify-content: space-between;
         text-align: center;
 
         @include mq.md {
+          width: 100%;
+          max-width: 460px;
           display: flex;
           flex-direction: row;
         }
         @include mq.sm {
+          width: 100%;
+          max-width: 460px;
           display: flex;
           flex-direction: row;
           gap: 10px;
         }
 
         li {
-          cursor: pointer;
           width: 100px;
+          cursor: pointer;
 
           @include mq.sm {
-            width: 23%;
-            max-width: 23%;
           }
 
           &:hover {
@@ -251,7 +253,7 @@
               flex-direction: column-reverse;
               gap: 20px;
               padding: 20px;
-              border-radius: 0 40px 0 0;
+              border-radius: 0 45px 0 0;
             }
 
             figure {

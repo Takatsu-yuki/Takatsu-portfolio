@@ -18,19 +18,18 @@
 
   .description {
     box-sizing: border-box;
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 0 108px;
     display: flex;
-    justify-content: space-between;
     gap: 11%;
+    justify-content: space-between;
+    max-width: 1440px;
+    padding: 0 108px;
+    margin: 0 auto;
     margin-bottom: 200px;
 
     @include mq.md {
       flex-direction: column;
       gap: 60px;
     }
-
     @include mq.sm {
       flex-direction: column;
       gap: 30px;
@@ -41,18 +40,20 @@
     .head {
       h2 {
         @include typography.en-regular;
+        margin: 0 0 15px -5px;
         font-size: 92px;
         line-height: 1;
-        margin: 0 0 15px -5px;
 
         @include mq.sm {
-          font-size: 45px;
           margin: 0 0 0 -2px;
+          font-size: 45px;
         }
       }
+
       span {
         @include typography.zen-regular;
         font-size: 16px;
+
         @include mq.sm {
           font-size: 12px;
         }
@@ -61,12 +62,12 @@
 
     .text {
       @include typography.zen-regular;
-      font-size: 16px;
-      line-height: 2;
-      margin-top: 155px;
       display: flex;
       flex-direction: column;
       gap: 30px;
+      margin-top: 155px;
+      font-size: 16px;
+      line-height: 2;
 
       @include mq.md-sm {
         margin-top: 0;
@@ -81,24 +82,24 @@
     box-sizing: border-box;
     width: 85%;
     height: fit-content;
-    border-radius: 0 60px 0 0;
-    border: solid var(--color-gold) 2px;
-    border-left: none;
     padding: 10px 10px 10px 0;
     margin-bottom: 200px;
+    border: solid var(--color-gold) 2px;
+    border-left: none;
+    border-radius: 0 60px 0 0;
 
     @include mq.sm {
       width: 93%;
-      border-radius: 0 50px 0 0;
       margin-bottom: 60px;
+      border-radius: 0 50px 0 0;
     }
 
     .img {
       width: 100%;
-      border-radius: 0 50px 0 0;
       overflow: hidden;
       border: solid var(--color-gold) 1px;
       border-left: none;
+      border-radius: 0 50px 0 0;
 
       @include mq.sm {
         height: 172px;
@@ -109,8 +110,8 @@
         width: 100%;
         max-width: 100%;
         height: 480px;
-        object-fit: cover;
         vertical-align: top;
+        object-fit: cover;
 
         @include mq.sm {
           height: 172px;
@@ -121,18 +122,18 @@
 
   .information {
     @include typography.zen-regular;
-    padding: 0 108px;
-    max-width: 816px;
-    margin: 0 auto 200px;
     display: flex;
     flex-direction: column;
     gap: 30px;
+    max-width: 816px;
+    padding: 0 108px;
+    margin: 0 auto 200px;
     line-height: 2;
 
     @include mq.sm {
+      gap: 20px;
       padding: 0 24px;
       margin: 0 auto 60px;
-      gap: 20px;
     }
 
     .none {
@@ -160,13 +161,14 @@
           translate: 0 0;
         }
       }
+
       h3 {
-        color: var(--color-gold);
         font-size: 20px;
+        color: var(--color-gold);
         text-align: center;
         opacity: 0;
-        translate: 0 20px;
         transition: 1s ease;
+        translate: 0 20px;
 
         @include mq.sm {
           font-size: 16px;
@@ -182,8 +184,8 @@
       p {
         font-size: 16px;
         opacity: 0;
-        translate: 0 20px;
         transition: 1s ease;
+        translate: 0 20px;
 
         @include mq.sm {
           font-size: 13px;
@@ -193,28 +195,28 @@
   }
 
   .comp {
-    margin-bottom: 200px;
     box-sizing: border-box;
-    max-width: 1440px;
-    margin: 0 auto;
-    padding-inline: 108px;
     display: flex;
     justify-content: space-between;
+    max-width: 1440px;
+    padding-inline: 108px;
+    margin: 0 auto;
+    margin-bottom: 200px;
 
     @include mq.sm {
-      margin-inline: 60px;
+      flex-direction: column;
+      gap: 40px;
+      align-items: center;
       padding: 0 24px;
       margin: 0;
-      flex-direction: column;
-      align-items: center;
-      gap: 40px;
+      margin-inline: 60px;
     }
 
     img {
-      vertical-align: top;
-      border: solid 1px var(--color-gold);
       width: 100%;
       max-width: 100%;
+      vertical-align: top;
+      border: solid 1px var(--color-gold);
     }
 
     .pc {
@@ -244,19 +246,19 @@
   }
 
   .comp-bunner {
-    margin-bottom: 200px;
     box-sizing: border-box;
     max-width: 1440px;
-    margin: 0 auto;
     padding-inline: 108px;
+    margin: 0 auto;
+    margin-bottom: 200px;
 
     @include mq.sm {
-      margin-inline: 60px;
+      flex-direction: column;
+      gap: 40px;
+      align-items: center;
       padding: 0 24px;
       margin: 0;
-      flex-direction: column;
-      align-items: center;
-      gap: 40px;
+      margin-inline: 60px;
     }
 
     ol {
@@ -265,11 +267,11 @@
       list-style: none;
 
       @include mq.sm {
-        margin-inline: 60px;
-        margin: 0;
         flex-direction: column;
-        align-items: center;
         gap: 30px;
+        align-items: center;
+        margin: 0;
+        margin-inline: 60px;
       }
 
       li {
@@ -281,10 +283,10 @@
 
         span {
           @include typography.en-regular;
+          padding-top: 3px;
+          line-height: 2;
           color: var(--color-gold);
           border-top: solid 1px var(--color-gold);
-          line-height: 2;
-          padding-top: 3px;
         }
 
         .img {
@@ -301,27 +303,28 @@
       }
     }
   }
+
   .comp-card {
-    margin-bottom: 200px;
     box-sizing: border-box;
-    max-width: 1440px;
-    margin: 0 auto;
-    padding-inline: 108px;
     display: flex;
     justify-content: space-between;
+    max-width: 1440px;
+    padding-inline: 108px;
+    margin: 0 auto;
+    margin-bottom: 200px;
 
     @include mq.sm {
-      margin-inline: 60px;
+      flex-direction: column;
+      gap: 40px;
+      align-items: center;
       padding: 0 24px;
       margin: 0;
-      flex-direction: column;
-      align-items: center;
-      gap: 40px;
+      margin-inline: 60px;
     }
 
     .img {
-      border: solid 1px var(--color-gold);
       width: 49%;
+      border: solid 1px var(--color-gold);
 
       @include mq.sm {
         width: 70%;

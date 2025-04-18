@@ -18,14 +18,15 @@
 
   @include mq.md-sm {
     //scrollTrigger.chara .chara-md に使用
+
     .opacity-02 {
       opacity: 0.2;
     }
+
     .opacity-0 {
       opacity: 0;
     }
   }
-
   @include mq.sm {
     padding-inline: 0;
     margin-bottom: 200px;
@@ -239,6 +240,7 @@
           width: 100%;
           margin-bottom: 20px;
         }
+
         .chara-cont {
           z-index: 1;
           box-sizing: border-box;
@@ -264,6 +266,7 @@
             height: 440px;
             opacity: 1;
           }
+
           .chara {
             @include path.bg-img("/top/img-aboutme-character.webp");
             background-position: center;
@@ -275,21 +278,24 @@
             width: 100%;
             height: 100%;
             background-color: #78b6e5;
-            -webkit-mask-image: url(../images//about-me/img-aboutme-character-1.webp);
-            mask-image: url(../images//about-me/img-aboutme-character-1.webp);
-            mask-size: contain;
+            opacity: 0;
+            mask-image: url("../images//about-me/img-aboutme-character-1.webp");
+            mask-image: url("../images//about-me/img-aboutme-character-1.webp");
             mask-repeat: no-repeat;
             mask-position: center;
+            mask-size: contain;
             transition: 0.3s;
-            opacity: 0;
           }
+
           .blue {
             opacity: 0.3;
           }
+
           .green {
             background-color: #bbded7;
             opacity: 0.3;
           }
+
           .pink {
             background-color: #eeccd1;
             opacity: 0.3;
@@ -398,22 +404,25 @@
               transition: 0.3s ease;
             }
           }
+
           .color-md {
             @include geom.abs;
             width: 100%;
             height: 100%;
             background-color: #78b6e5;
-            -webkit-mask-image: url(../images//about-me/img-aboutme-character-1.webp);
-            mask-image: url(../images//about-me/img-aboutme-character-1.webp);
-            mask-size: contain;
+            opacity: 0;
+            mask-image: url("../images//about-me/img-aboutme-character-1.webp");
+            mask-image: url("../images//about-me/img-aboutme-character-1.webp");
             mask-repeat: no-repeat;
             mask-position: center;
+            mask-size: contain;
             transition: 0.3s;
-            opacity: 0;
           }
+
           .green {
             background-color: #bbded7;
           }
+
           .pink {
             background-color: #eeccd1;
           }
@@ -525,7 +534,8 @@
                 display: block;
 
                 @include mq.sm {
-                  @include geom.sq(20px);
+                  // @include geom.sq(20px);
+                  visibility: hidden;
                 }
 
                 &::before,

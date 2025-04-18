@@ -11,26 +11,27 @@
 
 .btns {
   box-sizing: border-box;
-  max-width: 1440px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  @include typography.zen-regular;
-  font-size: 20px;
-  margin: 0 auto 200px;
+  justify-content: space-between;
+  max-width: 1440px;
   padding: 20px 108px 0;
+  margin: 0 auto 200px;
+  font-size: 20px;
 
+  @include typography.zen-regular;
   @include mq.sm {
-    font-size: 13px;
-    margin: 0 0 60px;
-    padding: 20px 24px 0;
     align-items: flex-end;
+    padding: 20px 24px 0;
+    margin: 0 0 60px;
+    font-size: 13px;
   }
 
   a {
     color: var(--color-black);
     text-decoration: none;
   }
+
   .btn {
     display: flex;
     gap: 30px;
@@ -61,36 +62,37 @@
       }
     }
 
-    // @include mq.has-hover {
-    //   &:hover figure {
-    //     transform: translateX(10px);
-    //   }
-    // }
+    @include mq.has-hover {
+      &:hover figure {
+        transform: translateX(10px);
+      }
+    }
   }
 
   .back {
-    display: block;
     position: relative;
+    display: block;
+
     &::before {
       @include path.bg-img("svg/icon-box.svg");
-      content: "";
       position: absolute;
-      aspect-ratio: 34 / 22;
-      width: 34px;
       top: -35px;
       left: 50%;
+      width: 34px;
+      aspect-ratio: 34 / 22;
+      content: "";
+      transition: 0.3s;
       transform: translateX(-50%);
       transform-origin: center;
-      transition: 0.3s;
 
       @include mq.sm {
         top: -30px;
       }
     }
-    // @include mq.has-hover {
-    //   &:hover::before {
-    //     transform: translateX(-50%) scale(1.2);
-    //   }
-    // }
+    @include mq.has-hover {
+      &:hover::before {
+        transform: translateX(-50%) scale(1.2);
+      }
+    }
   }
 }

@@ -25,9 +25,10 @@ const initializeDetailsAccordion = (details) => {
   if (!(details && summary && panel)) return; // 必要要素が揃ってない場合は処理をやめる
 
   let isTransitioning = false; // 連打防止フラグ
+  let isEnabled = true; // ←これで機能ON/OFFを切り替えます
 
   const onOpen = () => {
-    if (details.open || isTransitioning) return;
+    if (details.open || isTransitioning || !isEnabled) return;
     isTransitioning = true;
     panel.style.gridTemplateRows = "0fr";
     details.setAttribute("open", "");
@@ -48,7 +49,7 @@ const initializeDetailsAccordion = (details) => {
   };
 
   const onClose = () => {
-    if (!details.open || isTransitioning) return;
+    if (!details.open || isTransitioning || !isEnabled) return;
     isTransitioning = true;
     panel.style.gridTemplateRows = "0fr";
 
@@ -63,14 +64,44 @@ const initializeDetailsAccordion = (details) => {
     );
   };
 
-  summary.addEventListener("click", (event) => {
+  const clickHandler = (event) => {
+    if (!isEnabled) {
+      event.preventDefault(); // 無効時はクリックを無効化
+      return;
+    }
+
     event.preventDefault();
     if (details.open) {
       onClose();
     } else {
       onOpen();
     }
+  };
+
+  summary.addEventListener("click", clickHandler);
+
+  // 機能の有効/無効を切り替える関数
+  const updateMode = (enabled) => {
+    isEnabled = enabled;
+    if (!enabled) {
+      // 無効化時：開いた状態にしておく
+      details.setAttribute("open", "");
+      panel.style.gridTemplateRows = "1fr";
+    } else {
+      // 有効化時：一旦閉じる
+      details.removeAttribute("open");
+      panel.style.gridTemplateRows = "";
+    }
+  };
+
+  // メディアクエリで監視
+  const mql = window.matchMedia("(max-width: 770px)");
+  mql.addEventListener("change", (e) => {
+    updateMode(!e.matches); // 770px以下なら無効に
   });
+
+  // 初回実行時にも反映
+  updateMode(!mql.matches);
 };
 
 document.querySelectorAll("details").forEach((details) => {

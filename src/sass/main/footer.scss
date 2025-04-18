@@ -37,10 +37,20 @@
 
     p {
       @include typography.zen-regular;
-      margin-bottom: 30px;
+      margin-bottom: 10px;
       font-size: 20px;
       color: var(--color-gold);
       text-align: center;
+
+      @include mq.sm {
+        font-size: 16px;
+      }
+    }
+
+    .mail {
+      display: block;
+      font-size: 20px;
+      margin-bottom: 30px;
 
       @include mq.sm {
         font-size: 16px;
@@ -53,10 +63,10 @@
       gap: 40px;
       align-items: center;
       justify-content: center;
+      width: fit-content;
       margin: 0 auto 60px;
       color: var(--color-gold);
       text-decoration: none;
-      width: fit-content;
 
       @include mq.sm {
         gap: 13px;
@@ -77,8 +87,8 @@
         line-height: 1;
 
         .text-wrap {
-          display: block;
           position: relative;
+          display: block;
           display: flex;
           align-items: center;
           overflow: hidden;
@@ -86,11 +96,13 @@
           .before,
           .after {
             display: flex;
+
             span {
-              transition: transform 0.5s ease.$custom1;
               display: block;
+              transition: transform 0.5s ease.$custom1;
             }
           }
+
           .before {
             span {
               transform: translate(0, 0);
@@ -111,6 +123,7 @@
             span {
               transform: translate(0, 100%);
             }
+
             span.hovered {
               transform: translate(0, 0);
             }
@@ -162,6 +175,7 @@
               left: 0;
               width: 100%;
             }
+
             a {
               @include typography.zen-regular;
               display: block;
@@ -206,6 +220,7 @@
 
           svg {
             vertical-align: top;
+
             path {
               fill: var(--color-gold);
             }

@@ -19,14 +19,14 @@
     top: 50%;
     z-index: 10;
     font-size: vw.lg(130);
+    line-height: 1.2;
     color: var(--color-gold);
     text-align: center;
     transform: translateY(-50%);
-    line-height: 1.2;
 
     span {
-      font-size: vw.lg(20);
       display: block;
+      font-size: vw.lg(20);
 
       @include mq.sm {
         font-size: vw.sm(12);
@@ -65,9 +65,9 @@
         margin: 0 0 0 vw.lg(105);
 
         @include mq.md-sm {
-          margin-top: vw.md(0);
           width: vw.sm(100);
           margin: 0 0 0 vw.sm(45);
+          margin-top: vw.md(0);
         }
       }
     }
