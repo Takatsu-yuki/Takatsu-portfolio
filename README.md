@@ -2,7 +2,7 @@
 
 [visit site ↗︎](https://portfolio.yutonosite.com/)
 
-<img width="1440" alt="スクリーンショット 2025-04-14 20 06 09" src="https://github.com/user-attachments/assets/dcf12d20-8b21-4b2f-8ec1-33eed00e5da2" />
+<img width="1425" alt="スクリーンショット 2025-04-18 18 09 48" src="https://github.com/user-attachments/assets/56ee1bc8-3ed1-48fd-af46-8b8854ca698e" />
 
 ## 📝概要
 
@@ -23,12 +23,13 @@
   - ProgressBar.js(ローディングアニメーション)
 - フレームワーク：gsap（スクロールアニメーション）
 - ビルドツール：Webpack
+  - [使用したWebpack ↗︎](https://github.com/yohak/yohak-webpack-boilerplate)
 
 ## 👩‍💻実装内容
 
-✅ レスポンシブ対応 (PC / スマートフォン)  
- ✅ スクロール、クリックイベントに連動したアニメーション
-✅ PugとSassにて変数、ミックスインを活用し、修正、更新の効率化
+  ✅ レスポンシブ対応 (PC / スマートフォン)  
+  ✅ スクロール、クリックイベントに連動したアニメーション  
+  ✅ PugとSassにて変数、ミックスインを活用し、修正、更新の効率化
 
 ファンタジーゲームの世界観を表現し、印象に残るサイトを目指すため、魔法陣の回転する動きや、ステータスバーの伸びる動きなど、遊び心のある仕組みを多く取り入れました。
-[使用したWebpack ↗︎](https://github.com/yohak/yohak-webpack-boilerplate)
+
