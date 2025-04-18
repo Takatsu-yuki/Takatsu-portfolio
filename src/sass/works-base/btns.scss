@@ -89,6 +89,7 @@
         top: -30px;
       }
     }
+
     @include mq.has-hover {
       &:hover::before {
         transform: translateX(-50%) scale(1.2);
