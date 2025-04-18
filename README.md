@@ -1,58 +1,34 @@
-# PROJECT NAME
+# 高津由輝　ポートフォリオサイト
 
-Takatsu Yuki Portfolio site
+[visit site ↗︎](https://portfolio.yutonosite.com/)
 
-## Install
+<img width="1440" alt="スクリーンショット 2025-04-14 20 06 09" src="https://github.com/user-attachments/assets/dcf12d20-8b21-4b2f-8ec1-33eed00e5da2" />
 
-```bash
-pnpm install
-```
+## 📝概要
 
-## Huskey のセットアップ
+自分自身の転職活動用ポートフォリオサイトを制作しました。
+採用担当者の視点を意識しながら、イラスト×webデザインスキルでユーザーがワクワクできるような世界観を作り出し、遊び心のあるサイト作りを意識しました。競合の多い応募者の中で個性を際立たせるようなポートフォリオサイトを目指しています。
 
-```bash
-# git が初期化されていなければ実行
-git init
-# 以下はpnpm install 後に実行
-pnpm exec husky init
-echo "pnpm dlx lint-staged --verbose" > .husky/pre-commit
-```
+## 🎨担当範囲
 
-## Scripts
+- 企画 (ターゲット設定・コンテンツ・ワイヤーフレーム作成) : 2週間
+- デザイン (カンプ作成) : 1週間
+- コーディング HTML(Pug) / CSS(Sass) / JavaScript : ３週間
 
-```bash
-pnpm webpack
-```
+## 🛠️開発
 
-`public` にファイルを書き出す
+- マークアップ：HTML(Pug) / CSS(Sass)
+- ライブラリ：
+  - Rellax.js(パララックスアニメーション)
+  - ProgressBar.js(ローディングアニメーション)
+- フレームワーク：gsap（スクロールアニメーション）
+- ビルドツール：Webpack
 
-```bash
-pnpm serve
-```
+## 👩‍💻実装内容
 
-上記 `webpack` に加えてbrowserSyncサーバーを起動する  
-確認用URLは以下  
-http://localhost:9000/
+✅ レスポンシブ対応 (PC / スマートフォン)  
+ ✅ スクロール、クリックイベントに連動したアニメーション
+✅ PugとSassにて変数、ミックスインを活用し、修正、更新の効率化
 
-```bash
-pnpm build
-```
-
-上記 `webpack` と同等かつ圧縮・難読化を行う。  
-圧縮設定は `webpack.config.ts` から変更可能。
-
-## Git branches
-
-### `#main`
-
-### `#develop`
-
-### `#staging`
-
-## Lint / Code format
-
-本プロジェクトでは ESLint, StyleLint 及び prettier を採用している。以下の拡張子に対して保存時に自動で適用されるようにエディターの設定を行うこと。
-
-- `ESLint` : `js,jsx,ts,tsx`
-- `StyleLint` : `scss`
-- `prettier` : `js,jsx,ts,tsx,json,yaml,pug,scss,css,less`
+ファンタジーゲームの世界観を表現し、印象に残るサイトを目指すため、魔法陣の回転する動きや、ステータスバーの伸びる動きなど、遊び心のある仕組みを多く取り入れました。
+[使用したWebpack ↗︎](https://github.com/yohak/yohak-webpack-boilerplate)
