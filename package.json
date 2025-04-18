@@ -1,9 +1,9 @@
 {
-  "name": "p",
-  "version": "0.0.1",
+  "name": "takatsu-portfolio",
+  "version": "1.0.0",
   "main": "index.js",
   "author": "Yuki Takatsu",
-  "license": "MIT",
+  "license": "UNLICENSED",
   "type": "module",
   "scripts": {
     "prepare": "husky",
