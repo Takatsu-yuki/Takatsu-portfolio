@@ -100,9 +100,9 @@ body {
 }
 
 /* stylelint-disable scss/at-rule-no-unknown, property-no-unknown */
-// @view-transition {
-//   navigation: auto;
-// }
+@view-transition {
+  navigation: auto;
+}
 /* stylelint-enable */
 
 @keyframes rotation {
