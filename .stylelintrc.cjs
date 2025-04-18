@@ -8,7 +8,7 @@ module.exports = {
     "no-descending-specificity": null,
     "no-empty-source": null,
     "block-no-empty": null,
-    // "property-no-unknown": null,
+    "property-no-unknown": null,
     "declaration-empty-line-before": ["never"],
     "declaration-block-no-redundant-longhand-properties": null,
     "scss/at-rule-no-unknown": true,
