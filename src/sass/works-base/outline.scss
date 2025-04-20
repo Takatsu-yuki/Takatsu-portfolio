@@ -223,7 +223,7 @@
       width: 57%;
 
       @include mq.sm {
-        width: 70%;
+        width: 100%;
       }
     }
 
@@ -231,7 +231,7 @@
       width: 34%;
 
       @include mq.sm {
-        width: 55%;
+        width: 70%;
       }
     }
 
@@ -240,7 +240,7 @@
       margin: 0 auto;
 
       @include mq.sm {
-        width: 70%;
+        width: 100%;
       }
     }
   }
@@ -271,14 +271,13 @@
         gap: 30px;
         align-items: center;
         margin: 0;
-        margin-inline: 60px;
       }
 
       li {
         width: 32%;
 
         @include mq.sm {
-          width: 70%;
+          width: 100%;
         }
 
         span {
@@ -327,7 +326,7 @@
       border: solid 1px var(--color-gold);
 
       @include mq.sm {
-        width: 70%;
+        width: 100%;
       }
 
       img {
