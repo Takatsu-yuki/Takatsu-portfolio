@@ -207,9 +207,9 @@
           @include geom.abs(50%, 50%);
           box-sizing: border-box;
           width: 100%;
-          pointer-events: none;
           max-width: 864px;
           padding: 5px;
+          pointer-events: none;
           background-color: var(--color-white);
           border: solid 2px var(--color-gold);
           border-radius: 0 60px 0 0;
