@@ -8,6 +8,7 @@ include ../_include/variables
   var lev = 0;
   var pathToRoot = '';
   var lev1ID = '';
+  var ogUrl = '';
 
 block vars
 
@@ -43,13 +44,10 @@ html(lang="ja", xmlns:og="http://ogp.me/ns#")
     link(href=`${pathToCSS}main.css${hash}`, rel="stylesheet", type="text/css")
     block links
 
-    meta(property="og:title", content="")
-    meta(property="og:description", content="")
-    meta(property="og:type", content="")
-    meta(property="og:image", content="")
-    meta(property="og:image:width", content="1200")
-    meta(property="og:image:height", content="630")
-    meta(property="og:url", content="")
+    meta(property="og:title", content="Takatsu Yuki portfolio site")
+    meta(property="og:description", content="高津由輝の就職活動用のポートフォリオサイトです。")
+    meta(property="og:type", content="website")
+    meta(property="og:url", content=ogUrl || "https://portfolio.yutonosite.com/")
     link(rel="icon", href=`${pathToCommon}icon.ico`, sizes="16x16")
     link(rel="icon", href=`${pathToCommon}icon.ico`, sizes="32x32")
     link(rel="apple-touch-icon", href=`${pathToCommon}icon.ico`, sizes="180x180")

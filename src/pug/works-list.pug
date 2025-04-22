@@ -1,8 +1,10 @@
 extends _template/_base
 
 block vars
+  - titleChild = "works";
   - lev1ID = "works";
   - lev = 2;
+  - ogUrl = "https://portfolio.yutonosite.com/works-list/";
 
 block links
   link(href=`${pathToCSS}works-list.css${hash}`, rel="stylesheet", type="text/css")
