@@ -257,19 +257,19 @@
             }
 
             figure {
-              @include geom.abs;
+              position: absolute;
               @include path.bg-img("svg/deco-circle.svg");
               z-index: -1;
               width: 477px;
               height: auto;
               aspect-ratio: 1/1;
               opacity: 0.2;
-              transform-origin: center;
               rotate: 30deg;
-              translate: -55% -55%;
+              translate: -50% -50%;
 
               @include mq.sm {
                 width: 100vw;
+                translate: -55% -100%;
               }
             }
 
